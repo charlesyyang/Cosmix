@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MusicApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Cosmix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,7 +157,7 @@
                                 <rect key="frame" x="0.0" y="75" width="414" height="395"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.87603771686553955" green="0.91396766901016235" blue="0.97003966569900513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Create A Space"/>
+                                <state key="normal" title="Create a Mix"/>
                                 <connections>
                                     <segue destination="E6R-xo-lkV" kind="show" id="OA6-F2-bRy"/>
                                 </connections>
@@ -166,7 +166,7 @@
                                 <rect key="frame" x="0.0" y="455" width="414" height="441"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96363168954849243" green="0.94793349504470825" blue="0.98311299085617065" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Join A Space"/>
+                                <state key="normal" title="Join a Mix"/>
                                 <connections>
                                     <segue destination="JRs-Vu-HKv" kind="show" id="jLw-qJ-DXI"/>
                                 </connections>
