@@ -3,15 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		26C5B8FC236E0A9B00273C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C5B8FB236E0A9B00273C87 /* AppDelegate.swift */; };
-		26C5B8FE236E0A9B00273C87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C5B8FD236E0A9B00273C87 /* ViewController.swift */; };
 		26C5B901236E0A9B00273C87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C5B8FF236E0A9B00273C87 /* Main.storyboard */; };
 		26C5B903236E0AA000273C87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C5B902236E0AA000273C87 /* Assets.xcassets */; };
 		26C5B906236E0AA000273C87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C5B904236E0AA000273C87 /* LaunchScreen.storyboard */; };
+		2F60D11A2377659B0060B7C7 /* MyMixesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D1192377659B0060B7C7 /* MyMixesVC.swift */; };
 		2F99642C2377535100825C63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F99642B2377535100825C63 /* GoogleService-Info.plist */; };
 		FA3D5AB3ADF4E6AD4362537E /* Pods_MusicApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844C6696313868156076926E /* Pods_MusicApp.framework */; };
 /* End PBXBuildFile section */
@@ -20,11 +20,11 @@
 		22FEB1364F9F01202CE77D84 /* Pods-MusicApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicApp.debug.xcconfig"; path = "Target Support Files/Pods-MusicApp/Pods-MusicApp.debug.xcconfig"; sourceTree = "<group>"; };
 		26C5B8F8236E0A9B00273C87 /* Cosmix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cosmix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C5B8FB236E0A9B00273C87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		26C5B8FD236E0A9B00273C87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		26C5B900236E0A9B00273C87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26C5B902236E0AA000273C87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26C5B905236E0AA000273C87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26C5B907236E0AA000273C87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F60D1192377659B0060B7C7 /* MyMixesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMixesVC.swift; sourceTree = "<group>"; };
 		2F99642B2377535100825C63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		811ED2494D381E18E941EB44 /* Pods-MusicApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicApp.release.xcconfig"; path = "Target Support Files/Pods-MusicApp/Pods-MusicApp.release.xcconfig"; sourceTree = "<group>"; };
 		844C6696313868156076926E /* Pods_MusicApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,22 +64,22 @@
 			isa = PBXGroup;
 			children = (
 				26C5B8FB236E0A9B00273C87 /* AppDelegate.swift */,
-				26C5B8FD236E0A9B00273C87 /* ViewController.swift */,
 				26C5B8FF236E0A9B00273C87 /* Main.storyboard */,
 				26C5B902236E0AA000273C87 /* Assets.xcassets */,
 				26C5B904236E0AA000273C87 /* LaunchScreen.storyboard */,
 				26C5B907236E0AA000273C87 /* Info.plist */,
 				2F99642B2377535100825C63 /* GoogleService-Info.plist */,
-				2F99642A237750C300825C63 /* Controllers */,
+				2F60D1192377659B0060B7C7 /* MyMixesVC.swift */,
+				2F60D11B237765B10060B7C7 /* Controller */,
 			);
 			path = MusicApp;
 			sourceTree = "<group>";
 		};
-		2F99642A237750C300825C63 /* Controllers */ = {
+		2F60D11B237765B10060B7C7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Controllers;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		5CD070B8156B1529296BC99E /* Pods */ = {
@@ -88,7 +88,6 @@
 				22FEB1364F9F01202CE77D84 /* Pods-MusicApp.debug.xcconfig */,
 				811ED2494D381E18E941EB44 /* Pods-MusicApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -216,7 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26C5B8FE236E0A9B00273C87 /* ViewController.swift in Sources */,
+				2F60D11A2377659B0060B7C7 /* MyMixesVC.swift in Sources */,
 				26C5B8FC236E0A9B00273C87 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

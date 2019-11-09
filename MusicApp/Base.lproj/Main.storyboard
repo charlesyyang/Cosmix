@@ -82,7 +82,7 @@
         <!--My Mixes-->
         <scene sceneID="qjD-sy-AWG">
             <objects>
-                <viewController id="EU5-jM-Yhe" sceneMemberID="viewController">
+                <viewController id="EU5-jM-Yhe" customClass="MyMixesVC" customModule="Cosmix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="blA-v4-l1v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -140,6 +140,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="AddNewMixButton" destination="4YS-m8-B8i" id="lxF-Qr-XWB"/>
+                        <outlet property="MixesTableView" destination="K5m-YC-gXB" id="ILu-Dm-3Rj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QdN-mO-hhx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -157,7 +161,7 @@
                                 <rect key="frame" x="0.0" y="75" width="414" height="395"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.87603771686553955" green="0.91396766901016235" blue="0.97003966569900513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Create a Mix"/>
+                                <state key="normal" title="Create A Mix"/>
                                 <connections>
                                     <segue destination="E6R-xo-lkV" kind="show" id="OA6-F2-bRy"/>
                                 </connections>
