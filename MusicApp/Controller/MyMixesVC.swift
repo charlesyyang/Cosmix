@@ -12,7 +12,8 @@ class MyMixesVC: UIViewController {
 
     @IBOutlet weak var MixesTableView: UITableView!
     
-    @IBOutlet weak var AddNewMixButton: UIBarButtonItem!
+    var mixList = [String] ()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
