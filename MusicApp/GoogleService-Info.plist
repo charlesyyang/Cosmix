@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>754212184489-it86q0lu4q8fo8vnoi2hdalsgilr00nq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.754212184489-it86q0lu4q8fo8vnoi2hdalsgilr00nq</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>754212184489-6ifcga10h6a04gpgqie7dp19kdk4jhb2.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAjUJinjzE6ND7sBGrDlj4tCBa6RWijfEA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>754212184489</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>charles.Cosmix</string>
+	<key>PROJECT_ID</key>
+	<string>streamline-5ab87</string>
+	<key>STORAGE_BUCKET</key>
+	<string>streamline-5ab87.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:754212184489:ios:25a826feedc0a82629a4b8</string>
+	<key>DATABASE_URL</key>
+	<string>https://streamline-5ab87.firebaseio.com</string>
+</dict>
+</plist>
