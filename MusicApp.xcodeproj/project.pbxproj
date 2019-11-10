@@ -82,8 +82,8 @@
 		2F60D11B237765B10060B7C7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2F60D1192377659B0060B7C7 /* MyMixesVC.swift */,
-				2F60D11F23778F3B0060B7C7 /* MyMixTableViewCell.swift */,
+				2F60D12223779CAA0060B7C7 /* Mix */,
+				2F60D12123779C110060B7C7 /* MixList */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -94,6 +94,22 @@
 				2F60D11C237769960060B7C7 /* Mix.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2F60D12123779C110060B7C7 /* MixList */ = {
+			isa = PBXGroup;
+			children = (
+				2F60D1192377659B0060B7C7 /* MyMixesVC.swift */,
+				2F60D11F23778F3B0060B7C7 /* MyMixTableViewCell.swift */,
+			);
+			path = MixList;
+			sourceTree = "<group>";
+		};
+		2F60D12223779CAA0060B7C7 /* Mix */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mix;
 			sourceTree = "<group>";
 		};
 		5CD070B8156B1529296BC99E /* Pods */ = {
