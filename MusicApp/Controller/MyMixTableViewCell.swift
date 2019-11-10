@@ -10,6 +10,9 @@ import UIKit
 
 class MyMixTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var mixName: UILabel!
+    @IBOutlet weak var mixID: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

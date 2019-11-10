@@ -11,6 +11,7 @@ import UIKit
 class MyMixesVC: UIViewController, UITableViewDelegate{
 
     var mixes = [Mix]()
+    var selectedMix = Mix?.self
     
     @IBOutlet weak var MixesTableView: UITableView!
     
@@ -32,23 +33,17 @@ class MyMixesVC: UIViewController, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "mixTableCell") as? MyMixTableViewCell {
-            let mix = Mix[indexPath.row]
-            let data = try? Data(contentsOf: myURL)
-            cell.pokemonName.text = Pokemon.name
-            cell.pokemonNumber.text = String(Pokemon.number)
+            let mix = mixes[indexPath.row]
+            cell.mixID.text = mix.id
+            cell.mixName.text = mix.name
             return cell
         }
         
         return UITableViewCell()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        selectedMix = mixes[indexPath.row]
+//        performSegue(withIdentifier: "to", sender: self)
+//    }
 }
