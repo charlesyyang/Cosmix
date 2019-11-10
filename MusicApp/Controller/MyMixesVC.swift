@@ -8,11 +8,15 @@
 
 import UIKit
 
-class MyMixesVC: UIViewController {
+class MyMixesVC: UIViewController, UITableViewDelegate{
 
+    var mixes = [Mix]()
+    
     @IBOutlet weak var MixesTableView: UITableView!
     
-    var mixList = [String] ()
+    
+    @IBOutlet weak var AddMixButton: UIBarButtonItem!
+    
     
     
     override func viewDidLoad() {
@@ -21,7 +25,22 @@ class MyMixesVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mixes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "mixTableCell") as? MyMixTableViewCell {
+            let mix = Mix[indexPath.row]
+            let data = try? Data(contentsOf: myURL)
+            cell.pokemonName.text = Pokemon.name
+            cell.pokemonNumber.text = String(Pokemon.number)
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
     /*
     // MARK: - Navigation
 
