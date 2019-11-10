@@ -26,7 +26,7 @@ class MyMixesVC: UIViewController, UITableViewDelegate{
         // Do any additional setup after loading the view.
     }
     
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mixes.count
     }
