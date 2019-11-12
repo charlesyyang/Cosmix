@@ -186,6 +186,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vyy-gm-EbG">
                                 <rect key="frame" x="0.0" y="75" width="414" height="395"/>
                                 <color key="backgroundColor" red="0.87603771686553955" green="0.91396766901016235" blue="0.97003966569900513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Create A Mix"/>
                                 <connections>
                                     <segue destination="E6R-xo-lkV" kind="show" id="OA6-F2-bRy"/>
@@ -194,6 +195,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kp7-1X-imY">
                                 <rect key="frame" x="0.0" y="455" width="414" height="441"/>
                                 <color key="backgroundColor" red="0.96363168954849243" green="0.94793349504470825" blue="0.98311299085617065" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Join a Mix"/>
                                 <connections>
                                     <segue destination="JRs-Vu-HKv" kind="show" id="jLw-qJ-DXI"/>
