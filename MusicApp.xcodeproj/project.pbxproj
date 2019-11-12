@@ -11,6 +11,7 @@
 		26C5B901236E0A9B00273C87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C5B8FF236E0A9B00273C87 /* Main.storyboard */; };
 		26C5B903236E0AA000273C87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C5B902236E0AA000273C87 /* Assets.xcassets */; };
 		26C5B906236E0AA000273C87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C5B904236E0AA000273C87 /* LaunchScreen.storyboard */; };
+		2F120754237A2D5300808645 /* MixVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F120753237A2D5300808645 /* MixVC.swift */; };
 		2F60D11A2377659B0060B7C7 /* MyMixesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D1192377659B0060B7C7 /* MyMixesVC.swift */; };
 		2F60D11D237769960060B7C7 /* Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D11C237769960060B7C7 /* Mix.swift */; };
 		2F60D12023778F3B0060B7C7 /* MyMixTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D11F23778F3B0060B7C7 /* MyMixTableViewCell.swift */; };
@@ -26,6 +27,7 @@
 		26C5B902236E0AA000273C87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26C5B905236E0AA000273C87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26C5B907236E0AA000273C87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F120753237A2D5300808645 /* MixVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixVC.swift; sourceTree = "<group>"; };
 		2F60D1192377659B0060B7C7 /* MyMixesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMixesVC.swift; sourceTree = "<group>"; };
 		2F60D11C237769960060B7C7 /* Mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mix.swift; sourceTree = "<group>"; };
 		2F60D11F23778F3B0060B7C7 /* MyMixTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMixTableViewCell.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		2F60D12223779CAA0060B7C7 /* Mix */ = {
 			isa = PBXGroup;
 			children = (
+				2F120753237A2D5300808645 /* MixVC.swift */,
 			);
 			path = Mix;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			files = (
 				2F60D11D237769960060B7C7 /* Mix.swift in Sources */,
 				2F60D11A2377659B0060B7C7 /* MyMixesVC.swift in Sources */,
+				2F120754237A2D5300808645 /* MixVC.swift in Sources */,
 				2F60D12023778F3B0060B7C7 /* MyMixTableViewCell.swift in Sources */,
 				26C5B8FC236E0A9B00273C87 /* AppDelegate.swift in Sources */,
 			);
