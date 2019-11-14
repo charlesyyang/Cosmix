@@ -6,6 +6,7 @@
 //  Copyright © 2019 shaina. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class MyMixesVC: UIViewController, UITableViewDelegate{
