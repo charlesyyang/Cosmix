@@ -93,9 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				2F7F7A2123809F30003797CC /* JoinVC.swift */,
+				2F7F7A232380A5D9003797CC /* CreateVC.swift */,
 				2F60D12223779CAA0060B7C7 /* Mix */,
 				2F60D12123779C110060B7C7 /* MixList */,
-				2F7F7A232380A5D9003797CC /* CreateVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

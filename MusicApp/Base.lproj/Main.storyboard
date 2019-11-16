@@ -225,10 +225,10 @@
             </objects>
             <point key="canvasLocation" x="442" y="812"/>
         </scene>
-        <!--View Controller-->
+        <!--CreateVC-->
         <scene sceneID="F8x-Vi-HEE">
             <objects>
-                <viewController id="E6R-xo-lkV" sceneMemberID="viewController">
+                <viewController id="E6R-xo-lkV" customClass="CreateVC" customModule="Cosmix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fiD-L6-7Dg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -246,8 +246,11 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="SpaceID:" destination="DSe-hl-xvI" eventType="editingDidEnd" id="B4F-JG-IIB"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Space Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pex-qY-Fba">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pex-qY-Fba">
                                 <rect key="frame" x="43" y="260" width="328" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0GC-rx-ruW"/>
@@ -361,6 +364,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="CreateSpaceButton:" destination="E6R-xo-lkV" eventType="touchUpInside" id="xII-mX-035"/>
                                     <segue destination="pqM-Tp-8aO" kind="show" id="ocA-Xa-Uvc"/>
                                 </connections>
                             </button>
@@ -392,8 +396,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ypA-JG-Qae"/>
                     </view>
+                    <connections>
+                        <outlet property="SpaceID" destination="F69-MB-UCT" id="BB4-yF-E4b"/>
+                        <outlet property="SpacePassword" destination="Pex-qY-Fba" id="SsU-Ik-KPH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6w-L5-X0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="DSe-hl-xvI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1566.6666666666667" y="681.69642857142856"/>
         </scene>
