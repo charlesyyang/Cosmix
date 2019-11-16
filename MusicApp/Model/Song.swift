@@ -18,6 +18,7 @@ class Song {
     
     
     init(id: String, title: String, artist: String, album: String, genre: [String]) {
+        self.id = id
         self.title = title
         self.artist = artist
         self.album = album
