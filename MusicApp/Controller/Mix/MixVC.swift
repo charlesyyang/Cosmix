@@ -11,8 +11,8 @@ import UIKit
 
 class MixVC: UIViewController, UITableViewDelegate{
     
-    var mixes = [Mix]()
-    var selectedMix = Mix?.self
+    var mix = [Song]()
+    var selectedSong = Song?.self
     
     @IBOutlet weak var MixesTableView: UITableView!
     
@@ -29,15 +29,15 @@ class MixVC: UIViewController, UITableViewDelegate{
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mixes.count
+        return mix.count
     }
     
        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "mixTableCell") as? MixTableViewCell {
-            let mix = mixes[indexPath.row]
-            cell.mixID.text = mix.id
-            cell.mixName.text = mix.name
+            let song = mix[indexPath.row]
+//            cell.mixID.text = song.id
+//            cell.mixName.text = mix.name
             return cell
         }
         

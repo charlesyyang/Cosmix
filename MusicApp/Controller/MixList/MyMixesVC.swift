@@ -26,30 +26,40 @@ class MyMixesVC: UIViewController, UITableViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AF.request("https://us-central1-streamline-5ab87.cloudfunctions.net/helloworld")
 
         // Do any additional setup after loading the view.
     }
     
     @IBAction func pressEdit(_ sender: Any) {
-        guard let url = URL(string: "https://us-central1-streamline-5ab87.cloudfunctions.net/helloworld") else {
+        
+        guard let url = URL(string: "https://us-central1-streamline-5ab87.cloudfunctions.net/get_facts") else {
             return
         }
+        var param = ["isrc": "CH3131340084"]
         
-        Alamofire.request(url,
-                          method: .get,
-                          parameters: [])
-            .validate()
-            .responseJSON { response in
-                guard response.result.isSuccess else {
-                    print("Error")
-                    return
+        AF.request(url, parameters: param).validate().responseJSON { response in
+            print(response.request)  // original URL request
+            print(response.response) // URL response
+            print(response.data)     // server data
+            print(response.result)   // result of response serialization
+            
+            switch response.result {
+            case .success(let value) :
+                if let JSON = value as? [String: Any] {
+                    let artist = JSON["artist"] as! String
+                    print(artist)
+                    let name = JSON["name"] as! String
+                    print(name)
                 }
                 
-                guard let value = response.result.value as? [String: Any],
-                    let rows = value["rows"] as? [[String: Any]] else {
-                        print("Malformed data received from fetchAllRooms service")
-                        return
-                }
+            case .failure(let error):
+                break
+            }
+            
+//            if let JSON = response.result.get() {
+//                print("JSON: \(JSON)")
+//            }
         }
     }
     

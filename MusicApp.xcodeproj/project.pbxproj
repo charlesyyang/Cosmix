@@ -15,6 +15,8 @@
 		2F60D11A2377659B0060B7C7 /* MyMixesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D1192377659B0060B7C7 /* MyMixesVC.swift */; };
 		2F60D11D237769960060B7C7 /* Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D11C237769960060B7C7 /* Mix.swift */; };
 		2F60D12023778F3B0060B7C7 /* MyMixTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D11F23778F3B0060B7C7 /* MyMixTableViewCell.swift */; };
+		2F7F7A2023809DDD003797CC /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7F7A1F23809DDD003797CC /* Song.swift */; };
+		2F7F7A2223809F30003797CC /* JoinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7F7A2123809F30003797CC /* JoinVC.swift */; };
 		2F99642C2377535100825C63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F99642B2377535100825C63 /* GoogleService-Info.plist */; };
 		2FD0ABDF237E0CAB000DFCEA /* MixTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0ABDE237E0CAB000DFCEA /* MixTableViewCell.swift */; };
 		FA3D5AB3ADF4E6AD4362537E /* Pods_MusicApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844C6696313868156076926E /* Pods_MusicApp.framework */; };
@@ -32,6 +34,8 @@
 		2F60D1192377659B0060B7C7 /* MyMixesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMixesVC.swift; sourceTree = "<group>"; };
 		2F60D11C237769960060B7C7 /* Mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mix.swift; sourceTree = "<group>"; };
 		2F60D11F23778F3B0060B7C7 /* MyMixTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMixTableViewCell.swift; sourceTree = "<group>"; };
+		2F7F7A1F23809DDD003797CC /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		2F7F7A2123809F30003797CC /* JoinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinVC.swift; sourceTree = "<group>"; };
 		2F99642B2377535100825C63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FD0ABDE237E0CAB000DFCEA /* MixTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixTableViewCell.swift; sourceTree = "<group>"; };
 		811ED2494D381E18E941EB44 /* Pods-MusicApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicApp.release.xcconfig"; path = "Target Support Files/Pods-MusicApp/Pods-MusicApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 		2F60D11B237765B10060B7C7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2F7F7A2123809F30003797CC /* JoinVC.swift */,
 				2F60D12223779CAA0060B7C7 /* Mix */,
 				2F60D12123779C110060B7C7 /* MixList */,
 			);
@@ -96,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				2F60D11C237769960060B7C7 /* Mix.swift */,
+				2F7F7A1F23809DDD003797CC /* Song.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,6 +257,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F7F7A2223809F30003797CC /* JoinVC.swift in Sources */,
+				2F7F7A2023809DDD003797CC /* Song.swift in Sources */,
 				2F60D11D237769960060B7C7 /* Mix.swift in Sources */,
 				2F60D11A2377659B0060B7C7 /* MyMixesVC.swift in Sources */,
 				2F120754237A2D5300808645 /* MixVC.swift in Sources */,
