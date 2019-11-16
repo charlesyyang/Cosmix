@@ -161,7 +161,11 @@
                         <viewLayoutGuide key="safeArea" id="bM0-6L-RQo"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Mixes" id="l19-bn-fzN">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="3Ad-sY-fcK"/>
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="3Ad-sY-fcK">
+                            <connections>
+                                <action selector="pressEdit:" destination="EU5-jM-Yhe" id="e2N-jS-t6W"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4YS-m8-B8i">
                             <connections>
                                 <segue destination="v72-Si-IUj" kind="show" id="cyk-Sk-8Uq"/>
@@ -171,6 +175,7 @@
                     <connections>
                         <outlet property="AddMixButton" destination="4YS-m8-B8i" id="Hv2-J1-uzu"/>
                         <outlet property="MixesTableView" destination="K5m-YC-gXB" id="ILu-Dm-3Rj"/>
+                        <outlet property="editBarButton" destination="3Ad-sY-fcK" id="B2h-wb-adF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QdN-mO-hhx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -627,10 +632,10 @@
             </objects>
             <point key="canvasLocation" x="1582.608695652174" y="1359.375"/>
         </scene>
-        <!--View Controller-->
+        <!--MixVC-->
         <scene sceneID="4i3-av-QaX">
             <objects>
-                <viewController id="fiD-bn-2Du" sceneMemberID="viewController">
+                <viewController id="fiD-bn-2Du" customClass="MixVC" customModule="Cosmix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dcW-pR-rEV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
