@@ -398,29 +398,13 @@
                     <connections>
                         <outlet property="SpaceID" destination="F69-MB-UCT" id="BB4-yF-E4b"/>
                         <outlet property="SpacePassword" destination="Pex-qY-Fba" id="SsU-Ik-KPH"/>
-                        <segue destination="pqM-Tp-8aO" kind="show" identifier="toMix" id="237-Yt-wKO"/>
+                        <segue destination="fiD-bn-2Du" kind="show" identifier="toMix" id="PQx-pb-crB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6w-L5-X0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DSe-hl-xvI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1566.6666666666667" y="681.69642857142856"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="xE4-mQ-lbb">
-            <objects>
-                <viewController id="pqM-Tp-8aO" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KcA-MP-q8a">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="P3q-10-ZrX"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="thn-Cr-6tu"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LAh-VZ-01u" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2719" y="682"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vnO-0D-6SX">
@@ -946,5 +930,8 @@
             <point key="canvasLocation" x="1903" y="-237"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="PQx-pb-crB"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

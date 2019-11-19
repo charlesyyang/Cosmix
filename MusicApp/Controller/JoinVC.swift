@@ -45,6 +45,17 @@ class JoinVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("preparing for segue")
+        if segue.identifier == "JoinSuccess" {
+            print("go to mix")
+            if let dest = segue.destination as? MixVC {
+                print("set space id tp:", SpaceID.text)
+                dest.spaceID = SpaceID.text!
+            }
+        }
+    }
+    
     /// Checks if party exists.
     /// If party exists, segues to next page.
     /// Else, generate an alert for user to enter valid party id.
