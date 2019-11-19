@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gX4-X2-MrC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gX4-X2-MrC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -365,7 +365,6 @@
                                 </state>
                                 <connections>
                                     <action selector="CreateSpaceButton:" destination="E6R-xo-lkV" eventType="touchUpInside" id="xII-mX-035"/>
-                                    <segue destination="pqM-Tp-8aO" kind="show" id="ocA-Xa-Uvc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -399,6 +398,7 @@
                     <connections>
                         <outlet property="SpaceID" destination="F69-MB-UCT" id="BB4-yF-E4b"/>
                         <outlet property="SpacePassword" destination="Pex-qY-Fba" id="SsU-Ik-KPH"/>
+                        <segue destination="pqM-Tp-8aO" kind="show" identifier="toMix" id="237-Yt-wKO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6w-L5-X0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -416,6 +416,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="P3q-10-ZrX"/>
                     </view>
+                    <navigationItem key="navigationItem" id="thn-Cr-6tu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LAh-VZ-01u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
