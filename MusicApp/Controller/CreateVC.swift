@@ -22,20 +22,24 @@ class CreateVC: UIViewController {
             self.generateAlert(title: "No Space ID Provided", message: "Please enter a Space ID", alertActionTitle: "OK")
         } else {
             let parameters = ["id": SpaceID.text!]
+                //check if space ID already exists in database by using check_party()
                    guard let url = URL(string: "https://us-central1-streamline-5ab87.cloudfunctions.net/check_party") else {
                            return
                        }
-            
-                       //check if space ID already exists in database
+                        //Alamofire request to check party ID
                        AF.request(url, parameters: parameters).validate().responseJSON { response in
                        switch response.result {
+                        
+                       //Request call successful
                        case .success(let value):
-                           print("running party success")
                            if let JSON = value as? [String: Any] {
                                let idsuccess = JSON["result"] as! Bool
+                                //if space ID already exists, generate alert
                                if idsuccess {
                                 self.generateAlert(title: "Space ID Taken", message: "Please try another Space ID", alertActionTitle: "OK")
-                               } else {
+                               }
+                               //Space ID does not exist, so call new_party() to create a new party and segue to MixVC
+                               else {
                                    guard let url = URL(string: "https://us-central1-streamline-5ab87.cloudfunctions.net/new_party") else {
                                        return
                                    }
@@ -45,6 +49,7 @@ class CreateVC: UIViewController {
                                 
                                 }
                            }
+                        //check party request failed, generate generic error
                        case .failure(let error):
                            self.generateAlert(title: "Space ID Error", message: "Please try another Space ID", alertActionTitle: "OK")
                        }
