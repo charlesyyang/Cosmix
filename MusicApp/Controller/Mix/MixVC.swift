@@ -21,7 +21,11 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var AddMixButton: UIBarButtonItem!
     
+    @IBOutlet weak var CurrentSongLabel: UILabel!
     
+    @IBOutlet weak var CurrentSongArtist: UILabel!
+    
+    @IBOutlet weak var CurrentSongImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,7 +123,8 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             selectedSong = mix[indexPath.row]
-            
+        CurrentSongLabel.text = selectedSong.title
+        CurrentSongArtist.text = selectedSong.artist
     }
 }
     
