@@ -89,9 +89,9 @@
 				26C5B904236E0AA000273C87 /* LaunchScreen.storyboard */,
 				26C5B907236E0AA000273C87 /* Info.plist */,
 				2F99642B2377535100825C63 /* GoogleService-Info.plist */,
+				2F2E8B56238500310024C99B /* Cosmix-Bridging-Header.h */,
 				2F60D11B237765B10060B7C7 /* Controller */,
 				2F60D11E2377699E0060B7C7 /* Model */,
-				2F2E8B56238500310024C99B /* Cosmix-Bridging-Header.h */,
 			);
 			path = MusicApp;
 			sourceTree = "<group>";

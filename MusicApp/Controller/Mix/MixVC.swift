@@ -21,7 +21,11 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var AddMixButton: UIBarButtonItem!
     
+    @IBOutlet weak var CurrentSongLabel: UILabel!
     
+    @IBOutlet weak var CurrentSongArtist: UILabel!
+    
+    @IBOutlet weak var CurrentSongImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +41,11 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             spaceID = "Unknown Party"
         }
         SpaceIDLabel.text = spaceID
+        var spaceIDList = UserDefaults.standard.array(forKey: "spaces") as! [String]
+        if !spaceIDList.contains(spaceID) {
+            spaceIDList.append(spaceID)
+            UserDefaults.standard.set(spaceIDList, forKey: "spaces")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -119,7 +128,8 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             selectedSong = mix[indexPath.row]
-            
+        CurrentSongLabel.text = selectedSong.title
+        CurrentSongArtist.text = selectedSong.artist
     }
 }
     

@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 import Alamofire
 
-class MyMixesVC: UIViewController, UITableViewDelegate{
+class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var mixes = [Mix]()
+    var spaceIDs = [String]()
     var selectedMix = Mix?.self
     
     @IBOutlet weak var editBarButton: UIBarButtonItem!
@@ -26,9 +27,24 @@ class MyMixesVC: UIViewController, UITableViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        AF.request("https://us-central1-streamline-5ab87.cloudfunctions.net/helloworld")
+        setUpLogic()
+        UserDefaults.standard.set([String](), forKey: "spaces")
+        
+            AF.request("https://us-central1-streamline-5ab87.cloudfunctions.net/helloworld")
 
         // Do any additional setup after loading the view.
+    }
+    
+    func setUpLogic() {
+        MixesTableView.delegate = self
+        MixesTableView.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("running view did appear")
+        spaceIDs = UserDefaults.standard.array(forKey: "spaces") as! [String]
+        print("space ids lenght: ", spaceIDs.count)
+        MixesTableView.reloadData()
     }
     
     @IBAction func pressEdit(_ sender: Any) {
@@ -69,9 +85,9 @@ class MyMixesVC: UIViewController, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "mixTableCell") as? MyMixTableViewCell {
-            let mix = mixes[indexPath.row]
-            cell.mixID.text = mix.id
-            cell.mixName.text = mix.name
+            let space = spaceIDs[indexPath.row]
+            cell.mixID.text = space
+            cell.mixName.text = space
             return cell
         }
         
