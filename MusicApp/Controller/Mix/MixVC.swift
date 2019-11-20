@@ -50,6 +50,7 @@ class MixVC: UIViewController, UITableViewDelegate{
                 print("running this")
                 if let JSON = value as? NSArray {
                     print("artisto", JSON[0])
+                    
                     print("running this 2")
 //                    let idsuccess = JSON["result"] as! Bool
  //                   if idsuccess {
