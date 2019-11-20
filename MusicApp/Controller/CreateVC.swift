@@ -103,4 +103,15 @@ class CreateVC: UIViewController {
         }
         return partyExists
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("preparing for segue")
+        if segue.identifier == "toMix" {
+            print("go to mix")
+            if let dest = segue.destination as? MixVC {
+                print("set space id tp:", SpaceID.text)
+                dest.spaceID = SpaceID.text!
+            }
+        }
+    }
 }

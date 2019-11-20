@@ -107,7 +107,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="161" id="vXl-wg-juU" customClass="MyMixTableViewCell" customModule="Cosmix" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mixTableCell" rowHeight="161" id="vXl-wg-juU" customClass="MyMixTableViewCell" customModule="Cosmix" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="354" height="161"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vXl-wg-juU" id="fco-nW-j4W">
@@ -672,8 +672,8 @@
                                     <segue destination="wI5-al-cEk" kind="show" id="5qK-nA-sHQ"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lTl-RL-uUZ">
-                                <rect key="frame" x="0.0" y="237" width="414" height="544"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lTl-RL-uUZ">
+                                <rect key="frame" x="0.0" y="183" width="414" height="598"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mixTableCell" rowHeight="80" id="UPH-Y8-Lt2" customClass="MixTableViewCell" customModule="Cosmix" customModuleProvider="target">
@@ -683,17 +683,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Mix ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ap5-xR-NQi">
-                                                    <rect key="frame" x="20" y="42" width="337" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mix ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ap5-xR-NQi">
+                                                    <rect key="frame" x="20" y="42" width="374" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Song Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpu-x2-ivZ">
-                                                    <rect key="frame" x="20" y="13" width="337" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpu-x2-ivZ">
+                                                    <rect key="frame" x="20" y="13" width="374" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="p5c-gl-A3Q"/>
-                                                        <constraint firstAttribute="width" constant="152" id="tqV-h3-tqB"/>
+                                                        <constraint firstAttribute="width" constant="374" id="sti-f3-hmj"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -734,10 +734,6 @@
                                     <constraint firstAttribute="width" constant="71" id="wMD-7B-Jnt"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzg-kU-fAC">
-                                <rect key="frame" x="192" y="199" width="30" height="30"/>
-                                <state key="normal" title="Play"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Road Trip To Tahoe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkg-Cs-Bvr">
                                 <rect key="frame" x="20" y="103" width="198" height="21"/>
                                 <constraints>
@@ -747,6 +743,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzg-kU-fAC">
+                                <rect key="frame" x="192" y="145" width="30" height="30"/>
+                                <state key="normal" title="Play"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -758,6 +758,7 @@
                             <constraint firstItem="LW1-8A-AUg" firstAttribute="top" secondItem="BzG-Sz-jQg" secondAttribute="top" id="OZn-Mv-LID"/>
                             <constraint firstItem="rzg-kU-fAC" firstAttribute="centerX" secondItem="lTl-RL-uUZ" secondAttribute="centerX" id="Uxh-17-Smf"/>
                             <constraint firstItem="BzG-Sz-jQg" firstAttribute="trailing" secondItem="fYh-a6-ObV" secondAttribute="trailing" id="Xx7-Vq-EJ1"/>
+                            <constraint firstItem="rzg-kU-fAC" firstAttribute="top" secondItem="xkg-Cs-Bvr" secondAttribute="bottom" constant="21" id="YY2-KB-mBF"/>
                             <constraint firstItem="Bys-YU-5sQ" firstAttribute="trailing" secondItem="8Oo-2f-mgm" secondAttribute="trailing" constant="12" id="Ykr-TZ-isB"/>
                             <constraint firstItem="BzG-Sz-jQg" firstAttribute="leading" secondItem="fYh-a6-ObV" secondAttribute="leading" id="aEJ-xi-cVH"/>
                             <constraint firstItem="xkg-Cs-Bvr" firstAttribute="top" secondItem="8Oo-2f-mgm" secondAttribute="top" id="dER-ye-YZz"/>
@@ -772,6 +773,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="gA8-LB-Pwc"/>
                     <connections>
+                        <outlet property="CurrentSongArtist" destination="fYh-a6-ObV" id="34d-Cm-zzd"/>
+                        <outlet property="CurrentSongLabel" destination="BzG-Sz-jQg" id="VWP-6f-Zjt"/>
                         <outlet property="MixesTableView" destination="lTl-RL-uUZ" id="0jB-lX-OE9"/>
                         <outlet property="SpaceIDLabel" destination="xkg-Cs-Bvr" id="cY9-92-z98"/>
                     </connections>
@@ -954,7 +957,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MDe-No-svM"/>
+        <segue reference="PQx-pb-crB"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
