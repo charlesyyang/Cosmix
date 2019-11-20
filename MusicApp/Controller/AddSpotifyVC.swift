@@ -12,15 +12,14 @@ import UIKit
 class AddSpotifyVC: UIViewController {
 
     
-//    let SpotifyClientID = "2fd46a7902e043e4bcb8ccda3d1381b2"
-//    let SpotifyRedirectURL = URL(string: "http://com.example.streamline/callback")!
-//    
-//    lazy var configuration = SPTConfiguration(
-//        clientID = Spotify)
-//    
-//    
-//    
-    @IBOutlet weak var LogButton: UIButton!
+    let SpotifyClientID = "2fd46a7902e043e4bcb8ccda3d1381b2"
+    let SpotifyRedirectURL = URL(string: "http://com.example.streamline/callback")!
+    
+ //   lazy var configuration = SPTConfiguration(
+ //       clientID = Spoti)
+    
+    
+    
     
     
     

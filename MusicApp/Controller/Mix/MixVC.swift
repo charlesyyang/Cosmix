@@ -10,13 +10,14 @@ import Foundation
 import UIKit
 import Alamofire
 
-class MixVC: UIViewController, UITableViewDelegate{
+class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var mix = [Song]()
-    var selectedSong = Song?.self
+    var selectedSong: Song!
     var spaceID: String!
     @IBOutlet weak var MixesTableView: UITableView!
     
+    @IBOutlet weak var SpaceIDLabel: UILabel!
     
     @IBOutlet weak var AddMixButton: UIBarButtonItem!
     
@@ -24,8 +25,22 @@ class MixVC: UIViewController, UITableViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        MixesTableView.delegate = self
+        MixesTableView.dataSource = self
+        setUpLogic()
         getFilteredSongs()
         // Do any additional setup after loading the view.
+    }
+    
+    func setUpLogic() {
+        if spaceID == "" {
+            spaceID = "Unknown Party"
+        }
+        SpaceIDLabel.text = spaceID
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        MixesTableView.reloadData()
     }
     
     func getFilteredSongs() {
@@ -47,15 +62,31 @@ class MixVC: UIViewController, UITableViewDelegate{
         
         switch response.result {
             case .success(let value) :
-                print("running this")
                 if let JSON = value as? NSArray {
-                    print("artisto", JSON[0])
-                    print("running this 2")
+                    for jsonEntry in JSON {
+                        if let entry = jsonEntry as? [String: String] {
+                           var artist = entry["artist"]
+                           var name = entry["name"]
+                            if name == "" {
+                                name = "n/a"
+                            }
+                            if artist == "" {
+                                artist = "n/a"
+                            }
+                           let newSong = Song(title: name!, artist: artist!)
+                            print("artist", artist)
+                            self.mix.append(newSong)
+                        }
+                    }
+                    print("mix size: ", self.mix.count)
 //                    let idsuccess = JSON["result"] as! Bool
  //                   if idsuccess {
  //                       print("successsss!!!!")
  //                   } else {
  //                   }
+                    self.MixesTableView.reloadData()
+                    print("finished reloading mixes table")
+                    print("mixes table size: ", self.MixesTableView.numberOfSections)
                 }
  //
             case .failure(let error):
@@ -66,25 +97,30 @@ class MixVC: UIViewController, UITableViewDelegate{
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("running table view count")
         return mix.count
     }
     
        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("running cell for row")
         if let cell = tableView.dequeueReusableCell(withIdentifier: "mixTableCell") as? MixTableViewCell {
             let song = mix[indexPath.row]
-//            cell.mixID.text = song.id
-//            cell.mixName.text = mix.name
+            cell.mixID.text = song.artist
+            cell.mixName.text = song.title
+            print("setting cell info")
+            print("cell text", cell.mixID.text)
+
             return cell
         }
         
         return UITableViewCell()
     }
         
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        selectedMix = mixes[indexPath.row]
-    //        performSegue(withIdentifier: "to", sender: self)
-    //    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            selectedSong = mix[indexPath.row]
+            
+    }
 }
     
 
