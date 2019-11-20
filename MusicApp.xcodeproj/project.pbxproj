@@ -12,6 +12,7 @@
 		26C5B903236E0AA000273C87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C5B902236E0AA000273C87 /* Assets.xcassets */; };
 		26C5B906236E0AA000273C87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C5B904236E0AA000273C87 /* LaunchScreen.storyboard */; };
 		2F120754237A2D5300808645 /* MixVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F120753237A2D5300808645 /* MixVC.swift */; };
+		2F2E8B51238465770024C99B /* AddSpotifyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E8B50238465770024C99B /* AddSpotifyVC.swift */; };
 		2F60D11A2377659B0060B7C7 /* MyMixesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D1192377659B0060B7C7 /* MyMixesVC.swift */; };
 		2F60D11D237769960060B7C7 /* Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D11C237769960060B7C7 /* Mix.swift */; };
 		2F60D12023778F3B0060B7C7 /* MyMixTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D11F23778F3B0060B7C7 /* MyMixTableViewCell.swift */; };
@@ -32,6 +33,7 @@
 		26C5B905236E0AA000273C87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26C5B907236E0AA000273C87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F120753237A2D5300808645 /* MixVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixVC.swift; sourceTree = "<group>"; };
+		2F2E8B50238465770024C99B /* AddSpotifyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpotifyVC.swift; sourceTree = "<group>"; };
 		2F60D1192377659B0060B7C7 /* MyMixesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMixesVC.swift; sourceTree = "<group>"; };
 		2F60D11C237769960060B7C7 /* Mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mix.swift; sourceTree = "<group>"; };
 		2F60D11F23778F3B0060B7C7 /* MyMixTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMixTableViewCell.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				2F7F7A232380A5D9003797CC /* CreateVC.swift */,
 				2F60D12223779CAA0060B7C7 /* Mix */,
 				2F60D12123779C110060B7C7 /* MixList */,
+				2F2E8B50238465770024C99B /* AddSpotifyVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				2FD0ABDF237E0CAB000DFCEA /* MixTableViewCell.swift in Sources */,
 				2F7F7A242380A5D9003797CC /* CreateVC.swift in Sources */,
 				26C5B8FC236E0A9B00273C87 /* AppDelegate.swift in Sources */,
+				2F2E8B51238465770024C99B /* AddSpotifyVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
