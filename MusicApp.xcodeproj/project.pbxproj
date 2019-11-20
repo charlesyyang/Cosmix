@@ -36,7 +36,7 @@
 		2F120753237A2D5300808645 /* MixVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixVC.swift; sourceTree = "<group>"; };
 		2F2E8B50238465770024C99B /* AddSpotifyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpotifyVC.swift; sourceTree = "<group>"; };
 		2F2E8B522384F8220024C99B /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyiOS.framework; path = MusicApp/SpotifyiOS.framework; sourceTree = "<group>"; };
-		2F2E8B56238500310024C99B /* Cosmix-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cosmix-Bridging-Header.h"; sourceTree = "<group>"; };
+		2F2E8B5723850E080024C99B /* Cosmix-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cosmix-Bridging-Header.h"; sourceTree = "<group>"; };
 		2F60D1192377659B0060B7C7 /* MyMixesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMixesVC.swift; sourceTree = "<group>"; };
 		2F60D11C237769960060B7C7 /* Mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mix.swift; sourceTree = "<group>"; };
 		2F60D11F23778F3B0060B7C7 /* MyMixTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMixTableViewCell.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 				26C5B904236E0AA000273C87 /* LaunchScreen.storyboard */,
 				26C5B907236E0AA000273C87 /* Info.plist */,
 				2F99642B2377535100825C63 /* GoogleService-Info.plist */,
-				2F2E8B56238500310024C99B /* Cosmix-Bridging-Header.h */,
+				2F2E8B5723850E080024C99B /* Cosmix-Bridging-Header.h */,
 				2F60D11B237765B10060B7C7 /* Controller */,
 				2F60D11E2377699E0060B7C7 /* Model */,
 			);
@@ -438,6 +438,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = charles.Cosmix;
 				PRODUCT_NAME = Cosmix;
 				SWIFT_OBJC_BRIDGING_HEADER = "Cosmix-Bridging-Header.h";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -461,6 +462,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = charles.Cosmix;
 				PRODUCT_NAME = Cosmix;
 				SWIFT_OBJC_BRIDGING_HEADER = "Cosmix-Bridging-Header.h";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
