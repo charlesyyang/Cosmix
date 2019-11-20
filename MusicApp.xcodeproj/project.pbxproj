@@ -13,6 +13,7 @@
 		26C5B906236E0AA000273C87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C5B904236E0AA000273C87 /* LaunchScreen.storyboard */; };
 		2F120754237A2D5300808645 /* MixVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F120753237A2D5300808645 /* MixVC.swift */; };
 		2F2E8B51238465770024C99B /* AddSpotifyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E8B50238465770024C99B /* AddSpotifyVC.swift */; };
+		2F2E8B532384F8220024C99B /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F2E8B522384F8220024C99B /* SpotifyiOS.framework */; };
 		2F60D11A2377659B0060B7C7 /* MyMixesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D1192377659B0060B7C7 /* MyMixesVC.swift */; };
 		2F60D11D237769960060B7C7 /* Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D11C237769960060B7C7 /* Mix.swift */; };
 		2F60D12023778F3B0060B7C7 /* MyMixTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D11F23778F3B0060B7C7 /* MyMixTableViewCell.swift */; };
@@ -34,6 +35,8 @@
 		26C5B907236E0AA000273C87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F120753237A2D5300808645 /* MixVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixVC.swift; sourceTree = "<group>"; };
 		2F2E8B50238465770024C99B /* AddSpotifyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpotifyVC.swift; sourceTree = "<group>"; };
+		2F2E8B522384F8220024C99B /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyiOS.framework; path = MusicApp/SpotifyiOS.framework; sourceTree = "<group>"; };
+		2F2E8B56238500310024C99B /* Cosmix-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cosmix-Bridging-Header.h"; sourceTree = "<group>"; };
 		2F60D1192377659B0060B7C7 /* MyMixesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMixesVC.swift; sourceTree = "<group>"; };
 		2F60D11C237769960060B7C7 /* Mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mix.swift; sourceTree = "<group>"; };
 		2F60D11F23778F3B0060B7C7 /* MyMixTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMixTableViewCell.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3D5AB3ADF4E6AD4362537E /* Pods_MusicApp.framework in Frameworks */,
+				2F2E8B532384F8220024C99B /* SpotifyiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +91,7 @@
 				2F99642B2377535100825C63 /* GoogleService-Info.plist */,
 				2F60D11B237765B10060B7C7 /* Controller */,
 				2F60D11E2377699E0060B7C7 /* Model */,
+				2F2E8B56238500310024C99B /* Cosmix-Bridging-Header.h */,
 			);
 			path = MusicApp;
 			sourceTree = "<group>";
@@ -96,9 +101,9 @@
 			children = (
 				2F7F7A2123809F30003797CC /* JoinVC.swift */,
 				2F7F7A232380A5D9003797CC /* CreateVC.swift */,
+				2F2E8B50238465770024C99B /* AddSpotifyVC.swift */,
 				2F60D12223779CAA0060B7C7 /* Mix */,
 				2F60D12123779C110060B7C7 /* MixList */,
-				2F2E8B50238465770024C99B /* AddSpotifyVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 		9A104EEE8DDE4FB94736B798 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2F2E8B522384F8220024C99B /* SpotifyiOS.framework */,
 				844C6696313868156076926E /* Pods_MusicApp.framework */,
 			);
 			name = Frameworks;
@@ -420,6 +426,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MusicApp",
+				);
 				INFOPLIST_FILE = MusicApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -427,6 +437,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = charles.Cosmix;
 				PRODUCT_NAME = Cosmix;
+				SWIFT_OBJC_BRIDGING_HEADER = "Cosmix-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -438,6 +449,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MusicApp",
+				);
 				INFOPLIST_FILE = MusicApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -445,6 +460,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = charles.Cosmix;
 				PRODUCT_NAME = Cosmix;
+				SWIFT_OBJC_BRIDGING_HEADER = "Cosmix-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

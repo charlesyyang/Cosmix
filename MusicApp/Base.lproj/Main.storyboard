@@ -180,10 +180,10 @@
             </objects>
             <point key="canvasLocation" x="-662.31884057971024" y="825"/>
         </scene>
-        <!--View Controller-->
+        <!--Add SpotifyVC-->
         <scene sceneID="RGr-uS-cCT">
             <objects>
-                <viewController id="zdk-pd-Bm5" sceneMemberID="viewController">
+                <viewController id="zdk-pd-Bm5" customClass="AddSpotifyVC" customModule="Cosmix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1kM-dW-jiL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -199,6 +199,9 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Q8J-XY-bmM"/>
                     </view>
+                    <connections>
+                        <outlet property="LogButton" destination="Spq-im-4lQ" id="hUl-Ix-MVU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="huq-3x-fXs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
