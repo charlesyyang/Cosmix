@@ -14,14 +14,18 @@ class Song {
     let title: String!
     let artist: String!
     let album: String!
-    let genre: [String]!
     
+    init(title: String, artist: String) {
+        self.id = ""
+        self.title = title
+        self.artist = artist
+        self.album = ""
+    }
     
-    init(id: String, title: String, artist: String, album: String, genre: [String]) {
+    init(id: String, title: String, artist: String, album: String) {
         self.id = id
         self.title = title
         self.artist = artist
         self.album = album
-        self.genre = genre
     }
 }
