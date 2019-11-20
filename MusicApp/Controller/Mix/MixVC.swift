@@ -41,6 +41,11 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             spaceID = "Unknown Party"
         }
         SpaceIDLabel.text = spaceID
+        var spaceIDList = UserDefaults.standard.array(forKey: "spaces") as! [String]
+        if !spaceIDList.contains(spaceID) {
+            spaceIDList.append(spaceID)
+            UserDefaults.standard.set(spaceIDList, forKey: "spaces")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
