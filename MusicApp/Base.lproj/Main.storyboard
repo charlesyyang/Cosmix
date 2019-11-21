@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gX4-X2-MrC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gX4-X2-MrC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -174,6 +174,7 @@
                         <outlet property="AddMixButton" destination="4YS-m8-B8i" id="Hv2-J1-uzu"/>
                         <outlet property="MixesTableView" destination="K5m-YC-gXB" id="ILu-Dm-3Rj"/>
                         <outlet property="editBarButton" destination="3Ad-sY-fcK" id="B2h-wb-adF"/>
+                        <segue destination="fiD-bn-2Du" kind="show" identifier="existingPartyToMixVC" id="ddn-Vo-bsI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QdN-mO-hhx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -614,16 +615,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Space ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sza-wC-doi">
-                                <rect key="frame" x="48" y="182" width="328" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Space ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sza-wC-doi">
+                                <rect key="frame" x="48" y="182" width="323" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="JUH-JE-dhn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aud-No-pQO">
-                                <rect key="frame" x="48" y="239" width="328" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -637,7 +633,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCA-hC-Eye">
-                                <rect key="frame" x="197" y="326" width="30" height="30"/>
+                                <rect key="frame" x="194" y="253" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Pi9-Ia-oNm"/>
                                 </constraints>
@@ -649,24 +645,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="sza-wC-doi" firstAttribute="trailing" secondItem="aud-No-pQO" secondAttribute="trailing" id="1Qq-my-DEm"/>
                             <constraint firstItem="sza-wC-doi" firstAttribute="top" secondItem="vM7-3N-4v5" secondAttribute="bottom" constant="23" id="4LJ-UE-1LB"/>
                             <constraint firstItem="vM7-3N-4v5" firstAttribute="centerX" secondItem="zA5-Fq-cY2" secondAttribute="centerX" id="4mI-6f-9NG"/>
                             <constraint firstItem="HCA-hC-Eye" firstAttribute="leading" secondItem="D29-Rb-iYb" secondAttribute="leading" constant="197" id="PKq-sq-f6V"/>
-                            <constraint firstItem="aud-No-pQO" firstAttribute="top" secondItem="sza-wC-doi" secondAttribute="bottom" constant="27" id="XiS-X4-b0L"/>
                             <constraint firstItem="sza-wC-doi" firstAttribute="leading" secondItem="D29-Rb-iYb" secondAttribute="leading" constant="48" id="Ywl-cW-2gn"/>
-                            <constraint firstItem="HCA-hC-Eye" firstAttribute="top" secondItem="aud-No-pQO" secondAttribute="bottom" constant="58" id="ZkD-SQ-3D3"/>
-                            <constraint firstItem="sza-wC-doi" firstAttribute="leading" secondItem="aud-No-pQO" secondAttribute="leading" id="g4w-FE-3op"/>
                             <constraint firstItem="D29-Rb-iYb" firstAttribute="bottom" secondItem="HCA-hC-Eye" secondAttribute="bottom" constant="505" id="il9-aa-t7i"/>
                             <constraint firstItem="vM7-3N-4v5" firstAttribute="top" secondItem="D29-Rb-iYb" secondAttribute="top" constant="50" id="mr5-QY-hWt"/>
-                            <constraint firstItem="aud-No-pQO" firstAttribute="centerX" secondItem="HCA-hC-Eye" secondAttribute="centerX" id="quJ-1H-Pn6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D29-Rb-iYb"/>
                     </view>
                     <connections>
                         <outlet property="JoinButton" destination="HCA-hC-Eye" id="oQX-Fv-GmC"/>
                         <outlet property="SpaceID" destination="sza-wC-doi" id="YZa-dF-sbG"/>
-                        <outlet property="SpacePassword" destination="aud-No-pQO" id="RS1-7g-GNv"/>
                         <segue destination="fiD-bn-2Du" kind="show" identifier="JoinSuccess" id="MDe-No-svM"/>
                     </connections>
                 </viewController>
@@ -800,10 +790,10 @@
             </objects>
             <point key="canvasLocation" x="2718.840579710145" y="1358.7053571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Playlists View Controller-->
         <scene sceneID="KIG-8Y-yci">
             <objects>
-                <viewController id="wI5-al-cEk" sceneMemberID="viewController">
+                <viewController id="wI5-al-cEk" customClass="AddPlaylistsViewController" customModule="Cosmix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uYz-b8-iMR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -866,10 +856,13 @@
                         <viewLayoutGuide key="safeArea" id="iPe-8Q-r0k"/>
                     </view>
                     <navigationItem key="navigationItem" id="wZZ-jQ-Icy"/>
+                    <connections>
+                        <outlet property="PlaylistsTableView" destination="MNv-ZV-Duu" id="2Ee-1h-OMO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5a-Uu-GdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3578.2608695652175" y="1355.3571428571429"/>
+            <point key="canvasLocation" x="3793" y="1379"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="kJN-Bg-Y8X">
