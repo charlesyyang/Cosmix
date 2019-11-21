@@ -20,7 +20,7 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var selectAllButton: UIButton!
     
     
-    var spotifyToken: String = "BQD40iVpafeCnEpAcUhekID74QPZV_En-nWm9Id_KMAAe29ZPWQCjiUwytKxZDA2EspmsLW889P-NmyHb-8LvQkyirrrUCIjDexyEae-SNmkNRB5x-Y_Wzbq51b5cEiBCPBCxFbAZ-39D3izcygFn5_dWuC4eHir9bwE9ANYTp7fLVpyVLo4shIz1IYSOvy5PdZTqhYjRCkT"
+    var spotifyToken: String = "BQCf8gGWdn-qrGc2wkTk8mDXzqCqn1Zlei2ALFgEFwK0Ut8dTgqdPja3fRZ1lhQvNxcdiT7KGxcB03aSllroS4j-ihwrH95QmnOUS7waT11ySelX8KnoI0USbqKf8jlrKPNvfVtawIqN4aeTAiBeYNQ"
     
     override func viewDidLoad() {
         super.viewDidLoad()

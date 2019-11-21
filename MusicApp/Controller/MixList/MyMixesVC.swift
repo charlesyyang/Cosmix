@@ -32,8 +32,6 @@ class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         if (UserDefaults.standard.array(forKey: "spaces") != nil) {
             spaceIDs = UserDefaults.standard.array(forKey: "spaces") as! [String]
         }
-        AF.request("https://us-central1-streamline-5ab87.cloudfunctions.net/helloworld")
-
         // Do any additional setup after loading the view.
     }
     
