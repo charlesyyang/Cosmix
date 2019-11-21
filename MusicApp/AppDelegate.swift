@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
     
     
     let SpotifyClientID = "2fd46a7902e043e4bcb8ccda3d1381b2"
@@ -18,6 +18,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAppRemoteDelegate, SPT
     var playURI = ""
     var accessToken = ""
     
+    //advanced authentication
+    func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {
+      print("success", session)
+    }
+    func sessionManager(manager: SPTSessionManager, didFailWith error: Error) {
+      print("fail", error)
+    }
+    func sessionManager(manager: SPTSessionManager, didRenew session: SPTSession) {
+      print("renewed", session)
+    }
+    
+    lazy var configuration = SPTConfiguration(
+      clientID: SpotifyClientID,
+      redirectURL: SpotifyRedirectURL
+    )
+    
+    lazy var sessionManager: SPTSessionManager = {
+      if let tokenSwapURL = URL(string: "https://cosmix-app.herokuapp.com/api/token"),
+         let tokenRefreshURL = URL(string: "https://cosmix-app.herokuapp.com/api/refresh_token") {
+        self.configuration.tokenSwapURL = tokenSwapURL
+        self.configuration.tokenRefreshURL = tokenRefreshURL
+        self.configuration.playURI = ""
+      }
+      let manager = SPTSessionManager(configuration: self.configuration, delegate: self)
+      return manager
+    }()
+    
+    
+    //basic authentication
+    /*
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
       let parameters = appRemote.authorizationParameters(from: url);
 
@@ -30,6 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAppRemoteDelegate, SPT
             }
       return true
     }
+ */
     
     func connect() {
       self.appRemote.authorizeAndPlayURI(self.playURI)
@@ -70,10 +101,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAppRemoteDelegate, SPT
       return appRemote
     }()
     
-    lazy var configuration = SPTConfiguration(
-      clientID: SpotifyClientID,
-      redirectURL: SpotifyRedirectURL
-    )
     
     func appRemote(_ appRemote: SPTAppRemote, didFailConnectionAttemptWithError error: Error?) {
         print("disconnected")
@@ -91,7 +118,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAppRemoteDelegate, SPT
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        //spotify advanced authentication
+        let requestedScopes: SPTScope = [.appRemoteControl]
+        self.sessionManager.initiateSession(with: requestedScopes, options: .default)
         return true
+    }
+    //spotify advanced authentication
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+      self.sessionManager.application(app, open: url, options: options)
+      return true
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {

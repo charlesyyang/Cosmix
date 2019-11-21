@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2666287D2386520E0043AEF1 /* AddPlaylistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666287C2386520E0043AEF1 /* AddPlaylistsViewController.swift */; };
+		2666287D2386520E0043AEF1 /* AddPlaylistsViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666287C2386520E0043AEF1 /* AddPlaylistsViewController2.swift */; };
 		2666288023865BDE0043AEF1 /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666287F23865BDE0043AEF1 /* PlaylistTableViewCell.swift */; };
 		26C5B8FC236E0A9B00273C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C5B8FB236E0A9B00273C87 /* AppDelegate.swift */; };
 		26C5B901236E0A9B00273C87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C5B8FF236E0A9B00273C87 /* Main.storyboard */; };
@@ -29,7 +29,7 @@
 
 /* Begin PBXFileReference section */
 		22FEB1364F9F01202CE77D84 /* Pods-MusicApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicApp.debug.xcconfig"; path = "Target Support Files/Pods-MusicApp/Pods-MusicApp.debug.xcconfig"; sourceTree = "<group>"; };
-		2666287C2386520E0043AEF1 /* AddPlaylistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistsViewController.swift; sourceTree = "<group>"; };
+		2666287C2386520E0043AEF1 /* AddPlaylistsViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistsViewController2.swift; sourceTree = "<group>"; };
 		2666287F23865BDE0043AEF1 /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; };
 		26C5B8F8236E0A9B00273C87 /* Cosmix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cosmix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C5B8FB236E0A9B00273C87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		2666287E2386565A0043AEF1 /* AddPlaylists */ = {
 			isa = PBXGroup;
 			children = (
-				2666287C2386520E0043AEF1 /* AddPlaylistsViewController.swift */,
+				2666287C2386520E0043AEF1 /* AddPlaylistsViewController2.swift */,
 				2666287F23865BDE0043AEF1 /* PlaylistTableViewCell.swift */,
 			);
 			path = AddPlaylists;
@@ -293,7 +293,7 @@
 				2F7F7A242380A5D9003797CC /* CreateVC.swift in Sources */,
 				26C5B8FC236E0A9B00273C87 /* AppDelegate.swift in Sources */,
 				2F2E8B51238465770024C99B /* AddSpotifyVC.swift in Sources */,
-				2666287D2386520E0043AEF1 /* AddPlaylistsViewController.swift in Sources */,
+				2666287D2386520E0043AEF1 /* AddPlaylistsViewController2.swift in Sources */,
 				2666288023865BDE0043AEF1 /* PlaylistTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,7 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q3TU5L85AZ;
+				DEVELOPMENT_TEAM = 39E3YEC73F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MusicApp",
@@ -467,7 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q3TU5L85AZ;
+				DEVELOPMENT_TEAM = 39E3YEC73F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MusicApp",

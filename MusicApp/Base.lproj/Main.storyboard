@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gX4-X2-MrC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gX4-X2-MrC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -842,6 +842,9 @@
                                 <rect key="frame" x="289" y="115" width="105" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Select All"/>
+                                <connections>
+                                    <action selector="selectDeselectTogglePressed:" destination="wI5-al-cEk" eventType="touchUpInside" id="0hr-ak-A4t"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9JF-Kg-PYx">
                                 <rect key="frame" x="153" y="769" width="112" height="36"/>
@@ -863,6 +866,7 @@
                     <navigationItem key="navigationItem" id="wZZ-jQ-Icy"/>
                     <connections>
                         <outlet property="PlaylistsTableView" destination="MNv-ZV-Duu" id="2Ee-1h-OMO"/>
+                        <outlet property="selectAllButton" destination="aTX-Dg-LDE" id="qD0-CK-2aG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5a-Uu-GdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
