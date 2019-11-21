@@ -29,7 +29,9 @@ class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLogic()
-        spaceIDs = UserDefaults.standard.array(forKey: "spaces") as! [String]
+        if (UserDefaults.standard.array(forKey: "spaces") != nil) {
+            spaceIDs = UserDefaults.standard.array(forKey: "spaces") as! [String]
+        }
         AF.request("https://us-central1-streamline-5ab87.cloudfunctions.net/helloworld")
 
         // Do any additional setup after loading the view.
@@ -38,12 +40,16 @@ class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func setUpLogic() {
         MixesTableView.delegate = self
         MixesTableView.dataSource = self
-        spaceIDs = UserDefaults.standard.array(forKey: "spaces") as! [String]
+        if (UserDefaults.standard.array(forKey: "spaces") != nil) {
+            spaceIDs = UserDefaults.standard.array(forKey: "spaces") as! [String]
+        }
         MixesTableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        spaceIDs = UserDefaults.standard.array(forKey: "spaces") as! [String]
+        if (UserDefaults.standard.array(forKey: "spaces") != nil) {
+            spaceIDs = UserDefaults.standard.array(forKey: "spaces") as! [String]
+        }
         MixesTableView.reloadData()
     }
     

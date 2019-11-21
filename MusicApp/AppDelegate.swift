@@ -10,7 +10,81 @@ import UIKit
 import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
+    
+    
+    let SpotifyClientID = "2fd46a7902e043e4bcb8ccda3d1381b2"
+    let SpotifyRedirectURL = URL(string: "cosmix-app-login://callback")!
+    var playURI = ""
+    var accessToken = ""
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+      let parameters = appRemote.authorizationParameters(from: url);
+
+            if let access_token = parameters?[SPTAppRemoteAccessTokenKey] {
+                appRemote.connectionParameters.accessToken = access_token
+                self.accessToken = access_token
+                print("access token", self.accessToken)
+            } else if let error_description = parameters?[SPTAppRemoteErrorDescriptionKey] {
+                // Show the error
+            }
+      return true
+    }
+    
+    func connect() {
+      self.appRemote.authorizeAndPlayURI(self.playURI)
+    }
+    
+    
+    
+    func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
+      debugPrint("Track name: %@", playerState.track.name)
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+      if self.appRemote.isConnected {
+        self.appRemote.disconnect()
+      }
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+      if let _ = self.appRemote.connectionParameters.accessToken {
+        self.appRemote.connect()
+      }
+    }
+
+    
+    func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {
+        self.appRemote.playerAPI?.delegate = self
+        self.appRemote.playerAPI?.subscribe(toPlayerState: { (result, error) in
+          if let error = error {
+            debugPrint(error.localizedDescription)
+          }
+        })
+    }
+    
+    lazy var appRemote: SPTAppRemote = {
+      let appRemote = SPTAppRemote(configuration: self.configuration, logLevel: .debug)
+      appRemote.connectionParameters.accessToken = self.accessToken
+        appRemote.delegate = self as! SPTAppRemoteDelegate
+      return appRemote
+    }()
+    
+    lazy var configuration = SPTConfiguration(
+      clientID: SpotifyClientID,
+      redirectURL: SpotifyRedirectURL
+    )
+    
+    func appRemote(_ appRemote: SPTAppRemote, didFailConnectionAttemptWithError error: Error?) {
+        print("disconnected")
+    }
+    
+    func appRemote(_ appRemote: SPTAppRemote, didDisconnectWithError error: Error?) {
+        print("failed")
+
+    }
+    
+    
 
     var window: UIWindow?
     
@@ -18,11 +92,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         // Override point for customization after application launch.
         FirebaseApp.configure()
         return true
-    }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -34,9 +103,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
