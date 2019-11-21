@@ -14,6 +14,7 @@ class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var mixes = [Mix]()
     var spaceIDs = [String]()
     var selectedMix = Mix?.self
+    var selectedID: String = ""
     
     @IBOutlet weak var editBarButton: UIBarButtonItem!
     
@@ -28,9 +29,8 @@ class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLogic()
-        UserDefaults.standard.set([String](), forKey: "spaces")
-        
-            AF.request("https://us-central1-streamline-5ab87.cloudfunctions.net/helloworld")
+        spaceIDs = UserDefaults.standard.array(forKey: "spaces") as! [String]
+        AF.request("https://us-central1-streamline-5ab87.cloudfunctions.net/helloworld")
 
         // Do any additional setup after loading the view.
     }
@@ -38,12 +38,12 @@ class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func setUpLogic() {
         MixesTableView.delegate = self
         MixesTableView.dataSource = self
+        spaceIDs = UserDefaults.standard.array(forKey: "spaces") as! [String]
+        MixesTableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("running view did appear")
         spaceIDs = UserDefaults.standard.array(forKey: "spaces") as! [String]
-        print("space ids lenght: ", spaceIDs.count)
         MixesTableView.reloadData()
     }
     
@@ -80,7 +80,7 @@ class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mixes.count
+        return spaceIDs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -94,8 +94,20 @@ class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         return UITableViewCell()
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        selectedMix = mixes[indexPath.row]
-//        performSegue(withIdentifier: "to", sender: self)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedID = spaceIDs[indexPath.row]
+        performSegue(withIdentifier: "existingPartyToMixVC", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("preparing for segue")
+        if segue.identifier == "existingPartyToMixVC" {
+            print("go to mix from main page")
+            if let dest = segue.destination as? MixVC {
+                print("set space id tp:", selectedID)
+                dest.spaceID = selectedID
+            }
+        }
+    }
+    
 }

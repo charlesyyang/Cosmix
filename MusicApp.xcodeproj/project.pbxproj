@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2666287D2386520E0043AEF1 /* AddPlaylistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666287C2386520E0043AEF1 /* AddPlaylistsViewController.swift */; };
 		26C5B8FC236E0A9B00273C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C5B8FB236E0A9B00273C87 /* AppDelegate.swift */; };
 		26C5B901236E0A9B00273C87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C5B8FF236E0A9B00273C87 /* Main.storyboard */; };
 		26C5B903236E0AA000273C87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C5B902236E0AA000273C87 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		22FEB1364F9F01202CE77D84 /* Pods-MusicApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicApp.debug.xcconfig"; path = "Target Support Files/Pods-MusicApp/Pods-MusicApp.debug.xcconfig"; sourceTree = "<group>"; };
+		2666287C2386520E0043AEF1 /* AddPlaylistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistsViewController.swift; sourceTree = "<group>"; };
 		26C5B8F8236E0A9B00273C87 /* Cosmix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cosmix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C5B8FB236E0A9B00273C87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26C5B900236E0A9B00273C87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2666287E2386565A0043AEF1 /* AddPlaylists */ = {
+			isa = PBXGroup;
+			children = (
+				2666287C2386520E0043AEF1 /* AddPlaylistsViewController.swift */,
+			);
+			path = AddPlaylists;
+			sourceTree = "<group>";
+		};
 		26C5B8EF236E0A9B00273C87 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		2F60D11B237765B10060B7C7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2666287E2386565A0043AEF1 /* AddPlaylists */,
 				2F7F7A2123809F30003797CC /* JoinVC.swift */,
 				2F7F7A232380A5D9003797CC /* CreateVC.swift */,
 				2F2E8B50238465770024C99B /* AddSpotifyVC.swift */,
@@ -279,6 +290,7 @@
 				2F7F7A242380A5D9003797CC /* CreateVC.swift in Sources */,
 				26C5B8FC236E0A9B00273C87 /* AppDelegate.swift in Sources */,
 				2F2E8B51238465770024C99B /* AddSpotifyVC.swift in Sources */,
+				2666287D2386520E0043AEF1 /* AddPlaylistsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
