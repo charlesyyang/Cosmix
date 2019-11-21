@@ -28,9 +28,8 @@ class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLogic()
-        UserDefaults.standard.set([String](), forKey: "spaces")
-        
-            AF.request("https://us-central1-streamline-5ab87.cloudfunctions.net/helloworld")
+        spaceIDs = UserDefaults.standard.array(forKey: "spaces") as! [String]
+        AF.request("https://us-central1-streamline-5ab87.cloudfunctions.net/helloworld")
 
         // Do any additional setup after loading the view.
     }
@@ -38,12 +37,12 @@ class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func setUpLogic() {
         MixesTableView.delegate = self
         MixesTableView.dataSource = self
+        spaceIDs = UserDefaults.standard.array(forKey: "spaces") as! [String]
+        MixesTableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("running view did appear")
         spaceIDs = UserDefaults.standard.array(forKey: "spaces") as! [String]
-        print("space ids lenght: ", spaceIDs.count)
         MixesTableView.reloadData()
     }
     
@@ -80,7 +79,7 @@ class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mixes.count
+        return spaceIDs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
