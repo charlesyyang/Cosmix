@@ -15,7 +15,9 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var mix = [Song]()
     var selectedSong: Song!
     var spaceID: String!
-    
+    var spotifyToken: String!
+    let delegate = UIApplication.shared.delegate as! AppDelegate
+
     @IBOutlet weak var MixesTableView: UITableView!
     
     @IBOutlet weak var SpaceIDLabel: UILabel!
@@ -37,6 +39,23 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func addToSpotifyPressed(_ sender: Any) {
+        let parameters = ["id": spaceID, "name": spaceID + "-cosmix", "token": spotifyToken]
+        guard let url = URL(string: "https://us-central1-streamline-5ab87.cloudfunctions.net/save") else {
+            return
+        }
+         //Alamofire request to check party ID
+        AF.request(url, method: .post, parameters: parameters, encoder: JSONParameterEncoder.default).response { response in
+        debugPrint(response)
+            switch response.result {
+            case .success(_) :
+                print("added playlist to party: ", myPlaylist.name)
+                }
+            case .failure(_) :
+                print("failed add to spotify")
+            }
+        }
+    }
     func setUpLogic() {
         if spaceID == "" {
             spaceID = "Unknown Party"
@@ -52,6 +71,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             spaceIDList.append(spaceID)
             UserDefaults.standard.set(spaceIDList, forKey: "spaces")
         }
+        spotifyToken = delegate.accessToken
     }
     
     override func viewDidAppear(_ animated: Bool) {
