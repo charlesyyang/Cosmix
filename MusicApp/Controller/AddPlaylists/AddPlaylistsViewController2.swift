@@ -11,11 +11,13 @@ import Foundation
 import Alamofire
 
 class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+    var spinner = UIActivityIndicatorView(style: .whiteLarge)
+
     @IBOutlet weak var PlaylistsTableView: UITableView!
     var playlists = [Playlist]()
-    var selectedPlaylists = Set<String>()
+    var selectedPlaylists = [String]()
     var isSelectAll = true
+    var failedPlaylists = [String]()
     var selectedPlaylist: Playlist = Playlist(id: "", imageURL: "", name: "")
     @IBOutlet weak var selectAllButton: UIButton!
     
@@ -44,7 +46,7 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
         if isSelectAll {
             for playlist in playlists {
                 if !selectedPlaylists.contains(playlist.name) {
-                    selectedPlaylists.insert(playlist.name)
+                    selectedPlaylists.append(playlist.name)
                 }
             }
             selectAllButton.titleLabel?.text = "Deselect All"
@@ -118,9 +120,9 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
         selectedPlaylist = playlists[indexPath.row]
 
         if !selectedPlaylists.contains(selectedPlaylist.name) {
-            selectedPlaylists.insert(selectedPlaylist.name)
+            selectedPlaylists.append(selectedPlaylist.name)
         } else {
-            selectedPlaylists.remove(selectedPlaylist.name)
+            selectedPlaylists = selectedPlaylists.filter {$0 != selectedPlaylist.name}
         }
         print("selected playlists: ")
         
@@ -132,7 +134,7 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         selectedPlaylist = playlists[indexPath.row]
 
-        selectedPlaylists.remove(selectedPlaylist.name)
+        selectedPlaylists = selectedPlaylists.filter {$0 != selectedPlaylist.name}
         print("selected playlists: ")
         
         for selectedPlaylist in selectedPlaylists {
@@ -160,7 +162,7 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
     
     
     @IBAction func addPlaylistsButtonPressed(_ sender: Any) {
-        for playlist in selectedPlaylists {
+        for (index, playlist) in selectedPlaylists.enumerated() {
             let myPlaylist = findPlaylist(playlistName: playlist)
             if myPlaylist.name == "" {
                 break
@@ -172,10 +174,29 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
             }
              //Alamofire request to check party ID
             AF.request(url, method: .post, parameters: parameters, encoder: JSONParameterEncoder.default).response { response in
-            debugPrint(response) }
-            print("added playlist to party: ", myPlaylist.name)
+            debugPrint(response)
+                switch response.result {
+                case .success(_) :
+                    print("added playlist to party: ", myPlaylist.name)
+                    if (response.response?.statusCode == 500) {
+                        self.failedPlaylists.append(myPlaylist.name)
+                    }
+                    if index == self.selectedPlaylists.endIndex - 1 {
+                        if (response.response?.statusCode == 500) {
+                            if !self.failedPlaylists.isEmpty {
+                                self.generateAlert(title: "Playlists Could Not Be Added", message: self.failedPlaylists.joined(separator: ",") + " are not yet supported." , alertActionTitle: "OK")
+                            }
+                        }
+                        self.performSegue(withIdentifier: "addPlaylistsToMix", sender: self)
+                    }
+                case .failure(_) :
+                    self.failedPlaylists.append(myPlaylist.name)
+                }
+            }
+            if failedPlaylists.count > 0 {
+                self.generateAlert(title: "Playlists Could Not Be Added", message: failedPlaylists.joined(separator: ","), alertActionTitle: "OK")
+            }
         }
-        self.performSegue(withIdentifier: "addPlaylistsToMix", sender: self)
     }
     
     func findPlaylist(playlistName: String) -> Playlist {
@@ -196,7 +217,29 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
     }
+        
+     func generateAlert(title: String, message: String, alertActionTitle: String) {
+           let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+           alertController.addAction(UIAlertAction(title: alertActionTitle, style: .default))
+           
+           self.present(alertController, animated: true, completion: nil)
+       }
     
-    
+    func createSpinnerView() {
+        let child = SpinnerViewController()
+        // add the spinner view controller
+        addChild(child)
+        child.view.frame = view.frame
+        view.addSubview(child.view)
+        child.didMove(toParent: self)
+
+        // wait two seconds to simulate some work happening
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            // then remove the spinner view controller
+            child.willMove(toParent: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParent()
+        }
+    }
 }
 
