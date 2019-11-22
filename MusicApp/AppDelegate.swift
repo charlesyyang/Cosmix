@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, SPTSessionManagerDelegate {
     
     
     let SpotifyClientID = "2fd46a7902e043e4bcb8ccda3d1381b2"
@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTSessionManagerDelegate
     //advanced authentication
     func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {
       print("success", session)
+      accessToken = session.accessToken
     }
     func sessionManager(manager: SPTSessionManager, didFailWith error: Error) {
       print("fail", error)
@@ -61,7 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTSessionManagerDelegate
       return true
     }
  */
-    
+   
+    /*
     func connect() {
       self.appRemote.authorizeAndPlayURI(self.playURI)
     }
@@ -111,7 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTSessionManagerDelegate
 
     }
     
-    
+    */
 
     var window: UIWindow?
     

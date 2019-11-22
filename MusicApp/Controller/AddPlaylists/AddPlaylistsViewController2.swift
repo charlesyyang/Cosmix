@@ -19,11 +19,13 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
     var selectedPlaylist = ""
     @IBOutlet weak var selectAllButton: UIButton!
     
-    
-    var spotifyToken: String = "BQCf8gGWdn-qrGc2wkTk8mDXzqCqn1Zlei2ALFgEFwK0Ut8dTgqdPja3fRZ1lhQvNxcdiT7KGxcB03aSllroS4j-ihwrH95QmnOUS7waT11ySelX8KnoI0USbqKf8jlrKPNvfVtawIqN4aeTAiBeYNQ"
+    let delegate = UIApplication.shared.delegate as! AppDelegate
+
+    var spotifyToken = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        spotifyToken = delegate.accessToken
         getPlaylists()
         // Do any additional setup after loading the view.
     }
