@@ -46,6 +46,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         if (UserDefaults.standard.array(forKey: "spaces") != nil) {
             spaceIDList = UserDefaults.standard.array(forKey: "spaces") as! [String]
         }
+        print("space id is: ", spaceID)
         if !spaceIDList.contains(spaceID) {
             spaceIDList.append(spaceID)
             UserDefaults.standard.set(spaceIDList, forKey: "spaces")
@@ -134,6 +135,20 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             selectedSong = mix[indexPath.row]
         CurrentSongLabel.text = selectedSong.title
         CurrentSongArtist.text = selectedSong.artist
+    }
+    
+    @IBAction func addMusicPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "toAddPlaylists", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("preparing for segue")
+        if segue.identifier == "toAddPlaylists" {
+            print("go to add playlist")
+            if let dest = segue.destination as? AddPlaylistsViewController {
+                dest.partyID = spaceID
+            }
+        }
     }
 }
     

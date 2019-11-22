@@ -19,14 +19,17 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
     var selectedPlaylist: Playlist = Playlist(id: "", imageURL: "", name: "")
     @IBOutlet weak var selectAllButton: UIButton!
     
+    @IBOutlet weak var addPlaylistsButton: UIButton!
     let delegate = UIApplication.shared.delegate as! AppDelegate
-
+    var partyID: String!
     var spotifyToken = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         PlaylistsTableView.delegate = self
         PlaylistsTableView.dataSource = self
+        PlaylistsTableView.allowsMultipleSelection = true
+        PlaylistsTableView.allowsMultipleSelectionDuringEditing = true
         spotifyToken = delegate.accessToken
         getPlaylists()
         // Do any additional setup after loading the view.
@@ -116,6 +119,24 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
 
         if !selectedPlaylists.contains(selectedPlaylist.name) {
             selectedPlaylists.insert(selectedPlaylist.name)
+        } else {
+            selectedPlaylists.remove(selectedPlaylist.name)
+        }
+        print("selected playlists: ")
+        
+        for selectedPlaylist in selectedPlaylists {
+            print("playlist: ", selectedPlaylist)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        selectedPlaylist = playlists[indexPath.row]
+
+        selectedPlaylists.remove(selectedPlaylist.name)
+        print("selected playlists: ")
+        
+        for selectedPlaylist in selectedPlaylists {
+            print("playlist: ", selectedPlaylist)
         }
     }
     
@@ -136,5 +157,46 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
      
      return UITableViewCell()
  }
+    
+    
+    @IBAction func addPlaylistsButtonPressed(_ sender: Any) {
+        for playlist in selectedPlaylists {
+            let myPlaylist = findPlaylist(playlistName: playlist)
+            if myPlaylist.name == "" {
+                break
+            }
+            let parameters = ["id": partyID, "playlist": myPlaylist.id, "token": spotifyToken]
+            print("playlist id in add playlists: ", myPlaylist.id)
+            guard let url = URL(string: "https://us-central1-streamline-5ab87.cloudfunctions.net/add") else {
+                return
+            }
+             //Alamofire request to check party ID
+            AF.request(url, method: .post, parameters: parameters, encoder: JSONParameterEncoder.default).response { response in
+            debugPrint(response) }
+            print("added playlist to party: ", myPlaylist.name)
+        }
+        self.performSegue(withIdentifier: "addPlaylistsToMix", sender: self)
+    }
+    
+    func findPlaylist(playlistName: String) -> Playlist {
+        for playlist in playlists {
+            if playlist.name == playlistName {
+                return playlist
+            }
+        }
+        return Playlist(id: "", imageURL: "", name: "")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("preparing for segue back to mix")
+        if segue.identifier == "addPlaylistsToMix" {
+            print("go back to mix")
+            if let dest = segue.destination as? MixVC {
+                dest.spaceID = partyID
+            }
+        }
+    }
+    
+    
 }
 
