@@ -162,6 +162,7 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
     
     
     @IBAction func addPlaylistsButtonPressed(_ sender: Any) {
+        self.createSpinnerView()
         for (index, playlist) in selectedPlaylists.enumerated() {
             let myPlaylist = findPlaylist(playlistName: playlist)
             if myPlaylist.name == "" {
@@ -234,7 +235,7 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
         child.didMove(toParent: self)
 
         // wait two seconds to simulate some work happening
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
             // then remove the spinner view controller
             child.willMove(toParent: nil)
             child.view.removeFromSuperview()
