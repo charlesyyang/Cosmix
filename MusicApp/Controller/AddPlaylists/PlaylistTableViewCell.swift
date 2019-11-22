@@ -13,11 +13,13 @@ class PlaylistTableViewCell: UITableViewCell {
     @IBOutlet weak var playlistImg: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        accessoryType = selected ? .checkmark : .none
 
         // Configure the view for the selected state
     }

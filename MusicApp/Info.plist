@@ -9,7 +9,7 @@
 			<string>charles.Cosmix</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>http://com.example.streamline/callback</string>
+				<string>cosmix-app-login</string>
 			</array>
 		</dict>
 	</array>

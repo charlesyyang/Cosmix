@@ -41,7 +41,11 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             spaceID = "Unknown Party"
         }
         SpaceIDLabel.text = spaceID
-        var spaceIDList = UserDefaults.standard.array(forKey: "spaces") as! [String]
+        var spaceIDList = [String]()
+        
+        if (UserDefaults.standard.array(forKey: "spaces") != nil) {
+            spaceIDList = UserDefaults.standard.array(forKey: "spaces") as! [String]
+        }
         if !spaceIDList.contains(spaceID) {
             spaceIDList.append(spaceID)
             UserDefaults.standard.set(spaceIDList, forKey: "spaces")
