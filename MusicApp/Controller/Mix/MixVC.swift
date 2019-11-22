@@ -49,8 +49,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         debugPrint(response)
             switch response.result {
             case .success(_) :
-                print("added playlist to party: ", myPlaylist.name)
-                }
+                print("added playlist to party:")
             case .failure(_) :
                 print("failed add to spotify")
             }
