@@ -13,10 +13,10 @@ import Alamofire
 class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var PlaylistsTableView: UITableView!
-    var playlists = [String]()
+    var playlists = [Playlist]()
     var selectedPlaylists = Set<String>()
     var isSelectAll = true
-    var selectedPlaylist = ""
+    var selectedPlaylist: Playlist = Playlist(id: "", imageURL: "", name: "")
     @IBOutlet weak var selectAllButton: UIButton!
     
     let delegate = UIApplication.shared.delegate as! AppDelegate
@@ -25,16 +25,23 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        PlaylistsTableView.delegate = self
+        PlaylistsTableView.dataSource = self
         spotifyToken = delegate.accessToken
         getPlaylists()
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        PlaylistsTableView.reloadData()
+    }
+    
+    
     @IBAction func selectDeselectTogglePressed(_ sender: Any) {
         if isSelectAll {
             for playlist in playlists {
-                if !selectedPlaylists.contains(playlist) {
-                    selectedPlaylists.insert(playlist)
+                if !selectedPlaylists.contains(playlist.name) {
+                    selectedPlaylists.insert(playlist.name)
                 }
             }
             selectAllButton.titleLabel?.text = "Deselect All"
@@ -68,20 +75,22 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
                     if let JSON = value as? NSArray {
                         for jsonEntry in JSON {
                             if let entry = jsonEntry as? [String: String] {
-                               var artist = entry["artist"]
-                               var name = entry["name"]
-                                if name == "" {
-                                    name = "n/a"
+                               var id = entry["id"]
+                               var img = entry["image"]
+                                var playlistName = entry["name"]
+                                
+                                if id == "" {
+                                    id = "n/a"
                                 }
-                                if artist == "" {
-                                    artist = "n/a"
+                                if img == "" {
+                                    img = "n/a"
                                 }
-                               var newPlaylist = name
-                                if newPlaylist == "" {
-                                    newPlaylist = "n/a"
+                                if playlistName == "" {
+                                    playlistName = "n/a"
                                 }
-                                self.playlists.append(newPlaylist!)
-                                print("artist")
+                                let newPlaylist = Playlist(id: id!, imageURL: img!, name: playlistName!)
+                                self.playlists.append(newPlaylist)
+                                print("playlist name", playlistName)
                             }
                         }
     //                    print("mix size: ", self.mix.count)
@@ -99,13 +108,14 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
                     break
             }
             }
+
         }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedPlaylist = playlists[indexPath.row]
 
-        if !selectedPlaylists.contains(selectedPlaylist) {
-            selectedPlaylists.insert(selectedPlaylist)
+        if !selectedPlaylists.contains(selectedPlaylist.name) {
+            selectedPlaylists.insert(selectedPlaylist.name)
         }
     }
     
@@ -116,9 +126,11 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
  }
  
  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     if let cell = tableView.dequeueReusableCell(withIdentifier: "mixTableCell") as? PlaylistTableViewCell {
+     if let cell = tableView.dequeueReusableCell(withIdentifier: "playlistTableCell") as? PlaylistTableViewCell {
          let playlist = playlists[indexPath.row]
-         cell.playlistName.text = playlist
+        cell.playlistName.text = playlist.name
+        cell.playlistImg.image = playlist.image
+        print("cell name", cell.playlistName.text)
          return cell
      }
      

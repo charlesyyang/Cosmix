@@ -804,17 +804,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="7DG-ZI-HkH" customClass="PlaylistTableViewCell" customModule="Cosmix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="playlistTableCell" rowHeight="112" id="7DG-ZI-HkH" customClass="PlaylistTableViewCell" customModule="Cosmix" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="112"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7DG-ZI-HkH" id="Mu3-l5-AQB">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5x5-aC-R8G">
-                                                    <rect key="frame" x="20" y="11" width="60" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Playlist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9WC-xq-zFN">
                                                     <rect key="frame" x="101" y="29" width="152" height="21"/>
                                                     <constraints>
@@ -825,10 +821,19 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5x5-aC-R8G">
+                                                    <rect key="frame" x="20" y="26" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="5x5-aC-R8G" secondAttribute="height" multiplier="1:1" id="3RQ-my-Gpc"/>
+                                                        <constraint firstAttribute="width" constant="60" id="o1Y-j7-R0g"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="9WC-xq-zFN" firstAttribute="top" secondItem="Mu3-l5-AQB" secondAttribute="topMargin" constant="2" id="GE3-2n-Zxc"/>
+                                                <constraint firstItem="5x5-aC-R8G" firstAttribute="leading" secondItem="Mu3-l5-AQB" secondAttribute="leading" constant="20" id="Gfi-v1-kF3"/>
                                                 <constraint firstItem="9WC-xq-zFN" firstAttribute="leading" secondItem="Mu3-l5-AQB" secondAttribute="leadingMargin" id="McE-2d-cyl"/>
+                                                <constraint firstItem="5x5-aC-R8G" firstAttribute="top" secondItem="Mu3-l5-AQB" secondAttribute="top" constant="26" id="bI1-nr-6xJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -871,7 +876,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5a-Uu-GdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3793" y="1379"/>
+            <point key="canvasLocation" x="3792.753623188406" y="1378.7946428571429"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="kJN-Bg-Y8X">
