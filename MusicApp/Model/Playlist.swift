@@ -18,9 +18,13 @@ class Playlist {
         self.name = name
         guard let url = URL(string: imageURL) else {
             return }
-        downloadImage(from: url)
+        
+        if let data = try? Data(contentsOf: url) {
+            image = UIImage(data: data)
+        } //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
     }
     
+    //async image fetch -- CURRENTLY NOT USING
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
