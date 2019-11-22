@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		262C40A223878F240082620F /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C40A123878F240082620F /* Playlist.swift */; };
 		2666287D2386520E0043AEF1 /* AddPlaylistsViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666287C2386520E0043AEF1 /* AddPlaylistsViewController2.swift */; };
 		2666288023865BDE0043AEF1 /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666287F23865BDE0043AEF1 /* PlaylistTableViewCell.swift */; };
 		26C5B8FC236E0A9B00273C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C5B8FB236E0A9B00273C87 /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		22FEB1364F9F01202CE77D84 /* Pods-MusicApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicApp.debug.xcconfig"; path = "Target Support Files/Pods-MusicApp/Pods-MusicApp.debug.xcconfig"; sourceTree = "<group>"; };
+		262C40A123878F240082620F /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		2666287C2386520E0043AEF1 /* AddPlaylistsViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistsViewController2.swift; sourceTree = "<group>"; };
 		2666287F23865BDE0043AEF1 /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; };
 		26C5B8F8236E0A9B00273C87 /* Cosmix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cosmix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,7 @@
 			children = (
 				2F60D11C237769960060B7C7 /* Mix.swift */,
 				2F7F7A1F23809DDD003797CC /* Song.swift */,
+				262C40A123878F240082620F /* Playlist.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F7F7A2223809F30003797CC /* JoinVC.swift in Sources */,
+				262C40A223878F240082620F /* Playlist.swift in Sources */,
 				2F7F7A2023809DDD003797CC /* Song.swift in Sources */,
 				2F60D11D237769960060B7C7 /* Mix.swift in Sources */,
 				2F60D11A2377659B0060B7C7 /* MyMixesVC.swift in Sources */,

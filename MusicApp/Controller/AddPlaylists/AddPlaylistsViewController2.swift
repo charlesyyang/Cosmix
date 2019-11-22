@@ -68,7 +68,6 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
                     if let JSON = value as? NSArray {
                         for jsonEntry in JSON {
                             if let entry = jsonEntry as? [String: String] {
-                                print("running inside loop")
                                var artist = entry["artist"]
                                var name = entry["name"]
                                 if name == "" {
