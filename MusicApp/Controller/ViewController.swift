@@ -177,7 +177,9 @@ class ViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteD
 import UIKit
 
 class ViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
-
+    
+    var partyID:String!
+    
     fileprivate let SpotifyClientID = "2fd46a7902e043e4bcb8ccda3d1381b2"
     fileprivate let SpotifyRedirectURI = URL(string: "cosmix-app-login://callback")!
 
@@ -389,15 +391,33 @@ class ViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteD
     // MARK: - SPTAppRemoteDelegate
 
     func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {
+        appRemote.playerAPI?.pause(nil)
         updateViewBasedOnConnected()
         appRemote.playerAPI?.delegate = self
+
         appRemote.playerAPI?.subscribe(toPlayerState: { (success, error) in
             if let error = error {
                 print("Error subscribing to player state:" + error.localizedDescription)
             }
         })
         fetchPlayerState()
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "addPlaylistsVC") as! AddPlaylistsViewController
+        print("presenting...")
+        self.present(nextViewController, animated:true, completion:nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("preparing for segue")
+        if segue.identifier == "toAddPlaylists" {
+            print("go to add playlist")
+            if let dest = segue.destination as? AddPlaylistsViewController {
+                dest.partyID = partyID
+            }
+        }
+    }
+    
+    
 
     func appRemote(_ appRemote: SPTAppRemote, didDisconnectWithError error: Error?) {
         updateViewBasedOnConnected()

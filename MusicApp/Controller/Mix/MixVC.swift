@@ -152,20 +152,21 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
             selectedSong = mix[indexPath.row]
         CurrentSongLabel.text = selectedSong.title
         CurrentSongArtist.text = selectedSong.artist
     }
     
     @IBAction func addMusicPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "loginSpotify", sender: self)
+        self.performSegue(withIdentifier: "toConnectSpotify", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("preparing for segue")
-        if segue.identifier == "toAddPlaylists" {
-            print("go to add playlist")
-            if let dest = segue.destination as? AddPlaylistsViewController {
+        if segue.identifier == "loginSpotify" {
+            print("go to login")
+            if let dest = segue.destination as? ViewController {
                 dest.partyID = spaceID
             }
         }
