@@ -15,7 +15,8 @@ class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var spaceIDs = [String]()
     var selectedMix = Mix?.self
     var selectedID: String = ""
-    
+    let delegate = UIApplication.shared.delegate as! AppDelegate
+
     @IBOutlet weak var editBarButton: UIBarButtonItem!
     
     
@@ -52,7 +53,6 @@ class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     @IBAction func pressEdit(_ sender: Any) {
-        
         guard let url = URL(string: "https://us-central1-streamline-5ab87.cloudfunctions.net/get_facts") else {
             return
         }

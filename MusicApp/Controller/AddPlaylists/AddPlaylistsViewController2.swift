@@ -32,7 +32,7 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
         PlaylistsTableView.dataSource = self
         PlaylistsTableView.allowsMultipleSelection = true
         PlaylistsTableView.allowsMultipleSelectionDuringEditing = true
-        spotifyToken = delegate.accessToken
+ //       spotifyToken = delegate.accessToken
         getPlaylists()
         // Do any additional setup after loading the view.
     }

@@ -70,7 +70,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             spaceIDList.append(spaceID)
             UserDefaults.standard.set(spaceIDList, forKey: "spaces")
         }
-        spotifyToken = delegate.accessToken
+//        spotifyToken = delegate.accessToken
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -158,7 +158,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     @IBAction func addMusicPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "toAddPlaylists", sender: self)
+        self.performSegue(withIdentifier: "loginSpotify", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
