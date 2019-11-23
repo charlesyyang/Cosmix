@@ -16,6 +16,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
     var selectedSong: Song!
     var spaceID: String!
     var spotifyToken: String!
+    var fromPlay = false
     let delegate = UIApplication.shared.delegate as! AppDelegate
     var blurEffect: UIBlurEffect!
     var blurEffectView: UIVisualEffectView!
@@ -31,8 +32,11 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
     @IBOutlet weak var CurrentSongArtist: UILabel!
     
     @IBOutlet weak var CurrentSongImage: UIImageView!
+        
+    @IBOutlet weak var pausePlayButton: UIButton!
     
-      fileprivate let SpotifyClientID = "2fd46a7902e043e4bcb8ccda3d1381b2"
+    
+    fileprivate let SpotifyClientID = "2fd46a7902e043e4bcb8ccda3d1381b2"
         fileprivate let SpotifyRedirectURI = URL(string: "cosmix-app-login://callback")!
         
         lazy var configuration: SPTConfiguration = {
@@ -54,7 +58,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
                return appRemote
            }()
 
-          var lastPlayerState: SPTAppRemotePlayerState?
+          fileprivate var lastPlayerState: SPTAppRemotePlayerState?
         
            func sessionManager(manager: SPTSessionManager, didFailWith error: Error) {
              presentAlertController(title: "Authorization Failed", message: error.localizedDescription, buttonTitle: "Bummer")
@@ -75,14 +79,35 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
          // MARK: - SPTAppRemoteDelegate
 
          func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {
-     //        appRemote.playerAPI?.pause(nil)
-             appRemote.playerAPI?.delegate = self
-
+            appRemote.playerAPI?.delegate = self
+            
              appRemote.playerAPI?.subscribe(toPlayerState: { (success, error) in
                  if let error = error {
                      print("Error subscribing to player state:" + error.localizedDescription)
                  }
              })
+            var isFromPlay = false
+            if UserDefaults.standard.bool(forKey: "fromPlay") != nil {
+                isFromPlay = UserDefaults.standard.bool(forKey: "fromPlay")
+            }
+            var isPaused = false
+            if UserDefaults.standard.bool(forKey: "isPaused") != nil {
+                isPaused = UserDefaults.standard.bool(forKey: "isPaused")
+            }
+            print("is from play is ", isFromPlay)
+            if isFromPlay == false {
+                print("pausing music")
+                appRemote.playerAPI?.pause(nil)
+            }
+            if isFromPlay{
+                if isPaused == false {
+                    appRemote.playerAPI?.pause(nil)
+                } else {
+                    appRemote.playerAPI?.resume(nil)
+                }
+                UserDefaults.standard.set(false, forKey: "fromPlay")
+            }
+            
              fetchPlayerState()
     //        pausePlayMusic()
     //        updateViewBasedOnConnected()
@@ -117,8 +142,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
            MixesTableView.dataSource = self
            setUpLogic()
            getFilteredSongs()
-            print("calling view did load")
-            print("app remote connected", appRemote.isConnected)
+
             connectToSpotifyButton.isHidden = true
             //only apply the blur if the user hasn't disabled transparency effects
             if !UIAccessibility.isReduceTransparencyEnabled {
@@ -145,13 +169,13 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
          func appRemote(_ appRemote: SPTAppRemote, didDisconnectWithError error: Error?) {
             updateViewBasedOnConnected()
             print("fail connection")
-             lastPlayerState = nil
+//             lastPlayerState = nil
          }
 
          func appRemote(_ appRemote: SPTAppRemote, didFailConnectionAttemptWithError error: Error?) {
             updateViewBasedOnConnected()
             print("fail connection")
-             lastPlayerState = nil
+//             lastPlayerState = nil
          }
 
           func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
@@ -168,18 +192,21 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
            }
         
         @IBAction func pausePlayPressed(_ sender: Any) {
-            
-            if let lastPlayerState = lastPlayerState, lastPlayerState.isPaused {
-                       appRemote.playerAPI?.resume(nil)
-                   } else {
-                       appRemote.playerAPI?.pause(nil)
-                   }
+//            let isPaused = UserDefaults.standard.bool(forKey: "isPaused")
+//            if let lastPlayerState = lastPlayerState, isPaused {
+//                       appRemote.playerAPI?.resume(nil)
+//                   } else {
+//
+//                       appRemote.playerAPI?.pause(nil)
+//                   }
             
        //     self.dismiss(animated: true, completion: nil)
     //        self.performSegue(withIdentifier: "toAddPlaylists", sender: self)
        //     print("pause / play")
     //        fetchPlayerState()
      //       pausePlayMusic()
+            UserDefaults.standard.set(true, forKey: "fromPlay")
+            
 //            let scope: SPTScope = [.appRemoteControl, .playlistReadPrivate]
 //
 //                  if #available(iOS 11, *) {
@@ -189,8 +216,16 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
 //                      // Use this on iOS versions < 11 to use SFSafariViewController
 //                      sessionManager.initiateSession(with: scope, options: .clientOnly, presenting: self)
 //                  }
-   //         appRemote.connect()
-    //        appRemote.playerAPI?.pause(nil)
+            appRemote.connectionParameters.accessToken = spotifyToken
+            var playURI = ""
+            if !mix.isEmpty {
+                playURI = mix[0].id
+                print("song title, ", mix[0].title)
+            }
+            appRemote.authorizeAndPlayURI(playURI)
+
+  //       appRemote.connect()
+ //       appRemote.playerAPI?.pause(nil)
 //            print("last player state: ", self.lastPlayerState?.contextTitle)
 //
 //            if let lastPlayerState = lastPlayerState, lastPlayerState.isPaused {
@@ -241,7 +276,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
                 fetchArtwork(for: playerState.track)
             }
             lastPlayerState = playerState
-     //      UserDefaults.standard.bool(forKey: "isPaused")
+            UserDefaults.standard.set(lastPlayerState?.isPaused, forKey: "isPaused")
             print("updated last player state: ", lastPlayerState?.contextTitle)
             print("updating state: ", lastPlayerState?.isPaused)
             if playerState.isPaused {

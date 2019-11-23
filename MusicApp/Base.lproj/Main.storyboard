@@ -786,7 +786,7 @@
                                 <rect key="frame" x="192" y="57" width="30" height="30"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
-                                    <action selector="pausePlayPressed:" destination="fiD-bn-2Du" eventType="touchUpInside" id="Zm3-ly-8B0"/>
+                                    <action selector="pausePlayPressed:" destination="fiD-bn-2Du" eventType="touchUpInside" id="1Ph-U7-OPd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YO8-rR-omZ">
@@ -836,6 +836,7 @@
                         <outlet property="MixesTableView" destination="lTl-RL-uUZ" id="0jB-lX-OE9"/>
                         <outlet property="SpaceIDLabel" destination="xkg-Cs-Bvr" id="cY9-92-z98"/>
                         <outlet property="connectToSpotifyButton" destination="ZgW-0M-6eB" id="Mns-Yz-a4j"/>
+                        <outlet property="pausePlayButton" destination="rzg-kU-fAC" id="NIz-5m-Gl7"/>
                         <segue destination="fay-fI-2u5" kind="show" identifier="loginSpotify" id="6Px-e9-cFq"/>
                         <segue destination="pYe-p1-x5g" kind="presentation" identifier="toConnectSpotify" id="3dv-mr-dLY"/>
                         <segue destination="wI5-al-cEk" kind="show" id="G8r-hO-VPp"/>
