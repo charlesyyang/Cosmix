@@ -10,7 +10,7 @@ import UIKit
 
 class ConnectSpotifyViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
     var partyID:String!
-      
+    
     fileprivate let SpotifyClientID = "2fd46a7902e043e4bcb8ccda3d1381b2"
     fileprivate let SpotifyRedirectURI = URL(string: "cosmix-app-login://callback")!
     
@@ -60,7 +60,7 @@ class ConnectSpotifyViewController: UIViewController, SPTSessionManagerDelegate,
              }
          })
          fetchPlayerState()
-        
+        pausePlayMusic()
 //        updateViewBasedOnConnected()
 
         print("dismissing vc")
@@ -79,12 +79,27 @@ class ConnectSpotifyViewController: UIViewController, SPTSessionManagerDelegate,
      }
 
     @IBOutlet weak var puaseAndPlayButton: UIButton!
-    
+    fileprivate lazy var connectButton = ConnectButton(title: "CONNECT")
     @IBOutlet weak var connectToSpotifyButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        connectToSpotifyButton.titleLabel?.text = "test"
+        //only apply the blur if the user hasn't disabled transparency effects
+        if !UIAccessibility.isReduceTransparencyEnabled {
+            view.backgroundColor = .clear
 
+            let blurEffect = UIBlurEffect(style: .dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            //always fill the view
+            blurEffectView.frame = self.view.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            blurEffectView.tag = 100
+
+            view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
+            view.addSubview(connectToSpotifyButton)
+        } else {
+            view.backgroundColor = .black
+        }
+    
         // Do any additional setup after loading the view.
     }
     
@@ -117,31 +132,54 @@ class ConnectSpotifyViewController: UIViewController, SPTSessionManagerDelegate,
            }
        }
     
-    @IBAction func pausePlayPressed(_ sender: UIButton) {
+    @IBAction func pausePlayPressed(_ sender: Any) {
    //     self.dismiss(animated: true, completion: nil)
 //        self.performSegue(withIdentifier: "toAddPlaylists", sender: self)
         print("pause / play")
-        appRemote.playerAPI?.pause(nil)
-        print("last player state: ", lastPlayerState?.contextTitle)
+        fetchPlayerState()
+        pausePlayMusic()
+    
+//        appRemote.playerAPI?.pause(nil)
+        print("last player state: ", self.lastPlayerState?.contextTitle)
 
+//        if let lastPlayerState = lastPlayerState, lastPlayerState.isPaused {
+//            print("resuming")
+//            appRemote.playerAPI?.resume(nil)
+//        } else {
+//            print("pausing")
+//            appRemote.playerAPI?.pause(nil)
+//        }
+    }
+    
+    func pausePlayMusic() {
+        print("player state,", lastPlayerState)
         if let lastPlayerState = lastPlayerState, lastPlayerState.isPaused {
-            print("resuming")
             appRemote.playerAPI?.resume(nil)
         } else {
-            print("pausing")
             appRemote.playerAPI?.pause(nil)
         }
     }
     @IBAction func connectToSpotifyPressed(_ sender: UIButton) {
         let scope: SPTScope = [.appRemoteControl, .playlistReadPrivate]
         sender.isHidden = true
-             if #available(iOS 11, *) {
+        removeSubview()
+        if #available(iOS 11, *) {
                  // Use this on iOS 11 and above to take advantage of SFAuthenticationSession
                  sessionManager.initiateSession(with: scope, options: .clientOnly)
              } else {
                  // Use this on iOS versions < 11 to use SFSafariViewController
                  sessionManager.initiateSession(with: scope, options: .clientOnly, presenting: self)
              }
+    }
+    
+
+    func removeSubview(){
+        print("Start remove sibview")
+        if let viewWithTag = self.view.viewWithTag(100) {
+            viewWithTag.removeFromSuperview()
+        }else{
+            print("No!")
+        }
     }
     
     func update(playerState: SPTAppRemotePlayerState) {

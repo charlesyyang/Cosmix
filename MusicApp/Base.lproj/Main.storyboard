@@ -794,6 +794,14 @@
                                     <action selector="addToSpotifyPressed:" destination="fiD-bn-2Du" eventType="touchUpInside" id="KHQ-Lc-IyT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgW-0M-6eB">
+                                <rect key="frame" x="178" y="362" width="59" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="connectToSpotifyPressed:" destination="fiD-bn-2Du" eventType="touchUpInside" id="gtd-qE-Srv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -824,8 +832,11 @@
                         <outlet property="CurrentSongLabel" destination="BzG-Sz-jQg" id="VWP-6f-Zjt"/>
                         <outlet property="MixesTableView" destination="lTl-RL-uUZ" id="0jB-lX-OE9"/>
                         <outlet property="SpaceIDLabel" destination="xkg-Cs-Bvr" id="cY9-92-z98"/>
+                        <outlet property="connectToSpotifyButton" destination="ZgW-0M-6eB" id="Mns-Yz-a4j"/>
                         <segue destination="fay-fI-2u5" kind="show" identifier="loginSpotify" id="6Px-e9-cFq"/>
                         <segue destination="pYe-p1-x5g" kind="presentation" identifier="toConnectSpotify" id="3dv-mr-dLY"/>
+                        <segue destination="wI5-al-cEk" kind="show" id="G8r-hO-VPp"/>
+                        <segue destination="wI5-al-cEk" kind="presentation" identifier="addPlaylists" id="mZO-oq-iML"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a7X-ka-Zye" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -917,7 +928,7 @@
                         <outlet property="PlaylistsTableView" destination="MNv-ZV-Duu" id="2Ee-1h-OMO"/>
                         <outlet property="addPlaylistsButton" destination="9JF-Kg-PYx" id="bwf-T3-6BE"/>
                         <outlet property="selectAllButton" destination="aTX-Dg-LDE" id="qD0-CK-2aG"/>
-                        <segue destination="fiD-bn-2Du" kind="show" identifier="addPlaylistsToMix" id="vIr-mT-abE"/>
+                        <segue destination="fiD-bn-2Du" kind="presentation" identifier="addPlaylistsToMix" id="vIr-mT-abE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5a-Uu-GdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -941,7 +952,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2V-si-MlR" userLabel="Pause And Play">
-                                <rect key="frame" x="184" y="364" width="74" height="30"/>
+                                <rect key="frame" x="184" y="0.0" width="74" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play/Pause"/>
                                 <connections>
@@ -1066,7 +1077,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iG3-84-IdJ"/>
+        <segue reference="mZO-oq-iML"/>
         <segue reference="vIr-mT-abE"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
