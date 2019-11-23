@@ -17,7 +17,8 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
     var spaceID: String!
     var spotifyToken: String!
     let delegate = UIApplication.shared.delegate as! AppDelegate
-
+    var blurEffect: UIBlurEffect!
+    var blurEffectView: UIVisualEffectView!
     @IBOutlet weak var MixesTableView: UITableView!
     
     @IBOutlet weak var SpaceIDLabel: UILabel!
@@ -83,7 +84,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
                  }
              })
              fetchPlayerState()
-            pausePlayMusic()
+    //        pausePlayMusic()
     //        updateViewBasedOnConnected()
 
             print("dismissing vc")
@@ -118,20 +119,17 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
            getFilteredSongs()
             print("calling view did load")
             print("app remote connected", appRemote.isConnected)
-
+            connectToSpotifyButton.isHidden = true
             //only apply the blur if the user hasn't disabled transparency effects
             if !UIAccessibility.isReduceTransparencyEnabled {
 //                view.backgroundColor = .clear
 
-                let blurEffect = UIBlurEffect(style: .dark)
-                let blurEffectView = UIVisualEffectView(effect: blurEffect)
+                blurEffect = UIBlurEffect(style: .dark)
+                blurEffectView = UIVisualEffectView(effect: blurEffect)
                 //always fill the view
                 blurEffectView.frame = self.view.bounds
                 blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
                 blurEffectView.tag = 100
-
-                view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
-                view.addSubview(connectToSpotifyButton)
             } else {
                 view.backgroundColor = .white
             }
@@ -170,22 +168,38 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
            }
         
         @IBAction func pausePlayPressed(_ sender: Any) {
+            
+            if let lastPlayerState = lastPlayerState, lastPlayerState.isPaused {
+                       appRemote.playerAPI?.resume(nil)
+                   } else {
+                       appRemote.playerAPI?.pause(nil)
+                   }
+            
        //     self.dismiss(animated: true, completion: nil)
     //        self.performSegue(withIdentifier: "toAddPlaylists", sender: self)
-            print("pause / play")
-            fetchPlayerState()
-            pausePlayMusic()
-        
+       //     print("pause / play")
+    //        fetchPlayerState()
+     //       pausePlayMusic()
+//            let scope: SPTScope = [.appRemoteControl, .playlistReadPrivate]
+//
+//                  if #available(iOS 11, *) {
+//                      // Use this on iOS 11 and above to take advantage of SFAuthenticationSession
+//                      sessionManager.initiateSession(with: scope, options: .clientOnly)
+//                  } else {
+//                      // Use this on iOS versions < 11 to use SFSafariViewController
+//                      sessionManager.initiateSession(with: scope, options: .clientOnly, presenting: self)
+//                  }
+   //         appRemote.connect()
     //        appRemote.playerAPI?.pause(nil)
-            print("last player state: ", self.lastPlayerState?.contextTitle)
-
-    //        if let lastPlayerState = lastPlayerState, lastPlayerState.isPaused {
-    //            print("resuming")
-    //            appRemote.playerAPI?.resume(nil)
-    //        } else {
-    //            print("pausing")
-    //            appRemote.playerAPI?.pause(nil)
-    //        }
+//            print("last player state: ", self.lastPlayerState?.contextTitle)
+//
+//            if let lastPlayerState = lastPlayerState, lastPlayerState.isPaused {
+//                print("resuming")
+//                appRemote.playerAPI?.resume(nil)
+//            } else {
+//                print("pausing")
+//                appRemote.playerAPI?.pause(nil)
+//            }
         }
         
         func pausePlayMusic() {
@@ -203,12 +217,15 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
             if #available(iOS 11, *) {
                      // Use this on iOS 11 and above to take advantage of SFAuthenticationSession
                      sessionManager.initiateSession(with: scope, options: .clientOnly)
+                    self.performSegue(withIdentifier: "addPlaylists", sender: self)
+
                  } else {
                      // Use this on iOS versions < 11 to use SFSafariViewController
                      sessionManager.initiateSession(with: scope, options: .clientOnly, presenting: self)
+                self.performSegue(withIdentifier: "addPlaylists", sender: self)
+
                  }
         }
-        
 
         func removeSubview(){
             print("Start remove sibview")
@@ -224,6 +241,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
                 fetchArtwork(for: playerState.track)
             }
             lastPlayerState = playerState
+     //      UserDefaults.standard.bool(forKey: "isPaused")
             print("updated last player state: ", lastPlayerState?.contextTitle)
             print("updating state: ", lastPlayerState?.isPaused)
             if playerState.isPaused {
@@ -328,14 +346,21 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
                         if let entry = jsonEntry as? [String: String] {
                            var artist = entry["artist"]
                            var name = entry["name"]
+                            var imgUrl = entry["image"]
+                            var uri = entry["uri"]
                             if name == "" {
                                 name = "n/a"
                             }
                             if artist == "" {
                                 artist = "n/a"
                             }
-                           let newSong = Song(title: name!, artist: artist!)
-                            print("artist", artist)
+                            if uri == "" {
+                                uri = "n/a"
+                            }
+                            if imgUrl == "" {
+                                imgUrl = "n/a"
+                            }
+                           let newSong = Song(uri: uri!, title: name!, artist: artist!, imageUrl: imgUrl!)
                             self.mix.append(newSong)
                         }
                     }
@@ -386,7 +411,15 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
     }
     
     @IBAction func addMusicPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "addPlaylists", sender: self)
+        print("add music pressed")
+        if let viewWithTag = view.viewWithTag(100) {
+            print("add blur view")
+            view.addSubview(viewWithTag)
+        }
+        view.addSubview(blurEffectView)
+        print("add connect to spotify button")
+        connectToSpotifyButton.isHidden = false
+        view.addSubview(connectToSpotifyButton)
     }
 }
     
