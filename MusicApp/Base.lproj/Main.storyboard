@@ -712,7 +712,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lTl-RL-uUZ">
-                                <rect key="frame" x="0.0" y="95" width="414" height="632"/>
+                                <rect key="frame" x="0.0" y="91" width="414" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mixTableCell" rowHeight="80" id="UPH-Y8-Lt2" customClass="MixTableViewCell" customModule="Cosmix" customModuleProvider="target">
@@ -755,35 +755,30 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently Playing Song" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzG-Sz-jQg">
-                                <rect key="frame" x="112.5" y="738" width="174.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Song Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYh-a6-ObV">
+                                <rect key="frame" x="133" y="787" width="246" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYh-a6-ObV">
-                                <rect key="frame" x="112.5" y="767" width="174.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LW1-8A-AUg">
-                                <rect key="frame" x="33.5" y="738" width="71" height="70"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LW1-8A-AUg">
+                                <rect key="frame" x="34" y="742" width="70" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="71" id="wMD-7B-Jnt"/>
+                                    <constraint firstAttribute="width" secondItem="LW1-8A-AUg" secondAttribute="height" multiplier="1:1" id="gWG-Hi-ie6"/>
+                                    <constraint firstAttribute="width" constant="70" id="wMD-7B-Jnt"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Road Trip To Tahoe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkg-Cs-Bvr">
-                                <rect key="frame" x="20" y="15" width="198" height="21"/>
+                                <rect key="frame" x="20" y="15" width="198" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="198" id="xk8-kC-CKe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzg-kU-fAC">
-                                <rect key="frame" x="192" y="57" width="30" height="30"/>
+                                <rect key="frame" x="192" y="53" width="30" height="30"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="pausePlayPressed:" destination="fiD-bn-2Du" eventType="touchUpInside" id="1Ph-U7-OPd"/>
@@ -797,35 +792,47 @@
                                     <action selector="addToSpotifyPressed:" destination="fiD-bn-2Du" eventType="touchUpInside" id="KHQ-Lc-IyT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgW-0M-6eB">
-                                <rect key="frame" x="178" y="362" width="59" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Connect"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgW-0M-6eB">
+                                <rect key="frame" x="107" y="359" width="201" height="50"/>
+                                <color key="backgroundColor" red="0.17243427038192749" green="0.69798165559768677" blue="0.083845488727092743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="201" id="jTA-sg-AoW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="CONNECT TO SPOTIFY">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="connectToSpotifyPressed:" destination="fiD-bn-2Du" eventType="touchUpInside" id="gtd-qE-Srv"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Currently Playing Song" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzG-Sz-jQg">
+                                <rect key="frame" x="133" y="755" width="261" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Bys-YU-5sQ" firstAttribute="bottom" secondItem="fYh-a6-ObV" secondAttribute="bottom" constant="20" id="1kj-sg-5bF"/>
                             <constraint firstItem="xkg-Cs-Bvr" firstAttribute="top" secondItem="Bys-YU-5sQ" secondAttribute="top" constant="15" id="2bi-6w-YmJ"/>
-                            <constraint firstItem="fYh-a6-ObV" firstAttribute="top" secondItem="BzG-Sz-jQg" secondAttribute="bottom" constant="8" id="Ela-Bg-pi6"/>
+                            <constraint firstItem="ZgW-0M-6eB" firstAttribute="centerY" secondItem="Bys-YU-5sQ" secondAttribute="centerY" id="5ad-Lb-2ew"/>
                             <constraint firstItem="rzg-kU-fAC" firstAttribute="centerX" secondItem="dcW-pR-rEV" secondAttribute="centerX" id="Iaj-6q-YDX"/>
-                            <constraint firstItem="Bys-YU-5sQ" firstAttribute="trailing" secondItem="BzG-Sz-jQg" secondAttribute="trailing" constant="127" id="Ngk-RE-YhO"/>
-                            <constraint firstItem="LW1-8A-AUg" firstAttribute="top" secondItem="BzG-Sz-jQg" secondAttribute="top" id="OZn-Mv-LID"/>
+                            <constraint firstItem="fYh-a6-ObV" firstAttribute="top" secondItem="BzG-Sz-jQg" secondAttribute="bottom" constant="8" id="MnM-4o-GYZ"/>
+                            <constraint firstItem="BzG-Sz-jQg" firstAttribute="top" secondItem="lTl-RL-uUZ" secondAttribute="bottom" constant="17" id="SSN-cu-JA3"/>
+                            <constraint firstItem="LW1-8A-AUg" firstAttribute="leading" secondItem="Bys-YU-5sQ" secondAttribute="leading" constant="34" id="TvQ-sh-i1f"/>
                             <constraint firstItem="rzg-kU-fAC" firstAttribute="centerX" secondItem="lTl-RL-uUZ" secondAttribute="centerX" id="Uxh-17-Smf"/>
-                            <constraint firstItem="BzG-Sz-jQg" firstAttribute="trailing" secondItem="fYh-a6-ObV" secondAttribute="trailing" id="Xx7-Vq-EJ1"/>
+                            <constraint firstItem="fYh-a6-ObV" firstAttribute="leading" secondItem="LW1-8A-AUg" secondAttribute="trailing" constant="29" id="VLb-7z-Fcj"/>
                             <constraint firstItem="rzg-kU-fAC" firstAttribute="top" secondItem="xkg-Cs-Bvr" secondAttribute="bottom" constant="21" id="YY2-KB-mBF"/>
                             <constraint firstItem="Bys-YU-5sQ" firstAttribute="trailing" secondItem="8Oo-2f-mgm" secondAttribute="trailing" constant="12" id="Ykr-TZ-isB"/>
-                            <constraint firstItem="BzG-Sz-jQg" firstAttribute="leading" secondItem="fYh-a6-ObV" secondAttribute="leading" id="aEJ-xi-cVH"/>
                             <constraint firstItem="xkg-Cs-Bvr" firstAttribute="top" secondItem="8Oo-2f-mgm" secondAttribute="top" id="dER-ye-YZz"/>
-                            <constraint firstItem="BzG-Sz-jQg" firstAttribute="leading" secondItem="LW1-8A-AUg" secondAttribute="trailing" constant="8" id="f2b-SU-QS9"/>
+                            <constraint firstItem="BzG-Sz-jQg" firstAttribute="leading" secondItem="LW1-8A-AUg" secondAttribute="trailing" constant="29" id="gX9-P2-ER2"/>
                             <constraint firstItem="xkg-Cs-Bvr" firstAttribute="leading" secondItem="dcW-pR-rEV" secondAttribute="leadingMargin" id="hTJ-dh-UND"/>
-                            <constraint firstItem="LW1-8A-AUg" firstAttribute="top" secondItem="lTl-RL-uUZ" secondAttribute="bottom" constant="11" id="koW-em-u2q"/>
+                            <constraint firstItem="LW1-8A-AUg" firstAttribute="top" secondItem="lTl-RL-uUZ" secondAttribute="bottom" constant="10" id="koW-em-u2q"/>
                             <constraint firstItem="lTl-RL-uUZ" firstAttribute="leading" secondItem="Bys-YU-5sQ" secondAttribute="leading" id="lqA-pA-BwP"/>
                             <constraint firstItem="lTl-RL-uUZ" firstAttribute="top" secondItem="rzg-kU-fAC" secondAttribute="bottom" constant="8" id="nJ3-YU-aky"/>
-                            <constraint firstItem="LW1-8A-AUg" firstAttribute="bottom" secondItem="Bys-YU-5sQ" secondAttribute="bottom" id="tXC-Gv-LjY"/>
+                            <constraint firstItem="ZgW-0M-6eB" firstAttribute="centerX" secondItem="Bys-YU-5sQ" secondAttribute="centerX" id="reZ-oT-25i"/>
+                            <constraint firstItem="LW1-8A-AUg" firstAttribute="bottom" secondItem="Bys-YU-5sQ" secondAttribute="bottom" constant="10" id="tXC-Gv-LjY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bys-YU-5sQ"/>
                     </view>
@@ -837,6 +844,7 @@
                         <outlet property="SpaceIDLabel" destination="xkg-Cs-Bvr" id="cY9-92-z98"/>
                         <outlet property="connectToSpotifyButton" destination="ZgW-0M-6eB" id="Mns-Yz-a4j"/>
                         <outlet property="pausePlayButton" destination="rzg-kU-fAC" id="NIz-5m-Gl7"/>
+                        <outlet property="selectedSongImage" destination="LW1-8A-AUg" id="0Q7-lc-VDQ"/>
                         <segue destination="fay-fI-2u5" kind="show" identifier="loginSpotify" id="6Px-e9-cFq"/>
                         <segue destination="pYe-p1-x5g" kind="presentation" identifier="toConnectSpotify" id="3dv-mr-dLY"/>
                         <segue destination="wI5-al-cEk" kind="show" id="G8r-hO-VPp"/>

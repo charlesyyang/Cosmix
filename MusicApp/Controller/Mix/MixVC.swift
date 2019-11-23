@@ -21,6 +21,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
     var blurEffect: UIBlurEffect!
     var blurEffectView: UIVisualEffectView!
     @IBOutlet weak var MixesTableView: UITableView!
+    @IBOutlet weak var selectedSongImage: UIImageView!
     
     @IBOutlet weak var SpaceIDLabel: UILabel!
     
@@ -144,6 +145,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
            getFilteredSongs()
 
             connectToSpotifyButton.isHidden = true
+            connectToSpotifyButton.roundedButton()
             //only apply the blur if the user hasn't disabled transparency effects
             if !UIAccessibility.isReduceTransparencyEnabled {
 //                view.backgroundColor = .clear
@@ -443,6 +445,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
             selectedSong = mix[indexPath.row]
         CurrentSongLabel.text = selectedSong.title
         CurrentSongArtist.text = selectedSong.artist
+        selectedSongImage.image = selectedSong.img
     }
     
     @IBAction func addMusicPressed(_ sender: Any) {
@@ -455,6 +458,19 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
         print("add connect to spotify button")
         connectToSpotifyButton.isHidden = false
         view.addSubview(connectToSpotifyButton)
+    }
+}
+
+extension UIButton{
+    /// Rounds the corners of the UIButton
+    func roundedButton(){
+        let maskPath1 = UIBezierPath(roundedRect: bounds,
+                                     byRoundingCorners: [.topLeft , .topRight, .bottomLeft, .bottomRight],
+                                     cornerRadii: CGSize(width: 8, height: 8))
+        let maskLayer1 = CAShapeLayer()
+        maskLayer1.frame = bounds
+        maskLayer1.path = maskPath1.cgPath
+        layer.mask = maskLayer1
     }
 }
     
