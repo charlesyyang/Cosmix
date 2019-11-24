@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		262172A42388A06B00ACCCA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262172A32388A06B00ACCCA6 /* ViewController.swift */; };
+		262172A62388A0A200ACCCA6 /* ConnectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262172A52388A0A200ACCCA6 /* ConnectButton.swift */; };
+		262172A82388E1BE00ACCCA6 /* ConnectSpotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262172A72388E1BE00ACCCA6 /* ConnectSpotifyViewController.swift */; };
 		262C40A223878F240082620F /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C40A123878F240082620F /* Playlist.swift */; };
 		262C40A42387B4FD0082620F /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C40A32387B4FD0082620F /* SpinnerViewController.swift */; };
+		263D042B238A1CB000A3F70D /* joinCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263D042A238A1CB000A3F70D /* joinCreateViewController.swift */; };
 		2666287D2386520E0043AEF1 /* AddPlaylistsViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666287C2386520E0043AEF1 /* AddPlaylistsViewController2.swift */; };
 		2666288023865BDE0043AEF1 /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666287F23865BDE0043AEF1 /* PlaylistTableViewCell.swift */; };
 		26C5B8FC236E0A9B00273C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C5B8FB236E0A9B00273C87 /* AppDelegate.swift */; };
@@ -31,8 +35,12 @@
 
 /* Begin PBXFileReference section */
 		22FEB1364F9F01202CE77D84 /* Pods-MusicApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicApp.debug.xcconfig"; path = "Target Support Files/Pods-MusicApp/Pods-MusicApp.debug.xcconfig"; sourceTree = "<group>"; };
+		262172A32388A06B00ACCCA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		262172A52388A0A200ACCCA6 /* ConnectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectButton.swift; sourceTree = "<group>"; };
+		262172A72388E1BE00ACCCA6 /* ConnectSpotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSpotifyViewController.swift; sourceTree = "<group>"; };
 		262C40A123878F240082620F /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		262C40A32387B4FD0082620F /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		263D042A238A1CB000A3F70D /* joinCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joinCreateViewController.swift; sourceTree = "<group>"; };
 		2666287C2386520E0043AEF1 /* AddPlaylistsViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistsViewController2.swift; sourceTree = "<group>"; };
 		2666287F23865BDE0043AEF1 /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; };
 		26C5B8F8236E0A9B00273C87 /* Cosmix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cosmix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +131,10 @@
 				2F60D12223779CAA0060B7C7 /* Mix */,
 				2F60D12123779C110060B7C7 /* MixList */,
 				262C40A32387B4FD0082620F /* SpinnerViewController.swift */,
+				262172A32388A06B00ACCCA6 /* ViewController.swift */,
+				262172A52388A0A200ACCCA6 /* ConnectButton.swift */,
+				262172A72388E1BE00ACCCA6 /* ConnectSpotifyViewController.swift */,
+				263D042A238A1CB000A3F70D /* joinCreateViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -289,9 +301,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				262172A42388A06B00ACCCA6 /* ViewController.swift in Sources */,
+				262172A82388E1BE00ACCCA6 /* ConnectSpotifyViewController.swift in Sources */,
 				2F7F7A2223809F30003797CC /* JoinVC.swift in Sources */,
 				262C40A223878F240082620F /* Playlist.swift in Sources */,
+				263D042B238A1CB000A3F70D /* joinCreateViewController.swift in Sources */,
 				2F7F7A2023809DDD003797CC /* Song.swift in Sources */,
+				262172A62388A0A200ACCCA6 /* ConnectButton.swift in Sources */,
 				2F60D11D237769960060B7C7 /* Mix.swift in Sources */,
 				2F60D11A2377659B0060B7C7 /* MyMixesVC.swift in Sources */,
 				2F120754237A2D5300808645 /* MixVC.swift in Sources */,

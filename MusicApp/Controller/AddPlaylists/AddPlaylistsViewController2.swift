@@ -32,7 +32,7 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
         PlaylistsTableView.dataSource = self
         PlaylistsTableView.allowsMultipleSelection = true
         PlaylistsTableView.allowsMultipleSelectionDuringEditing = true
-        spotifyToken = delegate.accessToken
+ //       spotifyToken = delegate.accessToken
         getPlaylists()
         // Do any additional setup after loading the view.
     }
@@ -188,6 +188,7 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
                                 self.generateAlert(title: "Playlists Could Not Be Added", message: self.failedPlaylists.joined(separator: ",") + " are not yet supported." , alertActionTitle: "OK")
                             }
                         }
+                        
                         self.performSegue(withIdentifier: "addPlaylistsToMix", sender: self)
                     }
                 case .failure(_) :
@@ -216,6 +217,8 @@ class AddPlaylistsViewController: UIViewController, UITableViewDelegate, UITable
             if let dest = segue.destination as? MixVC {
                 dest.spaceID = partyID
             }
+            self.dismiss(animated: true, completion: nil)
+
         }
     }
         
