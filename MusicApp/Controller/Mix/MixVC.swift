@@ -128,7 +128,9 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
                      dest.partyID = spaceID
                     spotifyToken = UserDefaults.standard.string(forKey: "accessToken")
                     print("spotify token in prepare", spotifyToken)
-                    dest.spotifyToken = spotifyToken
+                    if spotifyToken != nil {
+                        dest.spotifyToken = spotifyToken
+                    }
                  }
              }
             if segue.identifier == "loginSpotify" {
@@ -263,12 +265,22 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
             if #available(iOS 11, *) {
                      // Use this on iOS 11 and above to take advantage of SFAuthenticationSession
                      sessionManager.initiateSession(with: scope, options: .clientOnly)
+                if UserDefaults.standard.string(forKey: "accessToken") != nil {
                     self.performSegue(withIdentifier: "addPlaylists", sender: self)
-
-                 } else {
+                } else {
+                    presentAlertController(title: "Cannot connect to Spotify", message: "Please download Spotify to give this app access to your Spotify playlists", buttonTitle: "OK")
+                    return
+                 }
+                
+           } else {
                      // Use this on iOS versions < 11 to use SFSafariViewController
                      sessionManager.initiateSession(with: scope, options: .clientOnly, presenting: self)
-                self.performSegue(withIdentifier: "addPlaylists", sender: self)
+                 if UserDefaults.standard.string(forKey: "accessToken") != nil {
+                                  self.performSegue(withIdentifier: "addPlaylists", sender: self)
+                              } else {
+                                  presentAlertController(title: "Cannot connect to Spotify", message: "Please download Spotify to give this app access to your Spotify playlists", buttonTitle: "OK")
+                                  return
+                               }
 
                  }
         }
