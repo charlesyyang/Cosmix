@@ -33,7 +33,17 @@ class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         if (UserDefaults.standard.array(forKey: "spaces") != nil) {
             spaceIDs = UserDefaults.standard.array(forKey: "spaces") as! [String]
         }
+        setUpUI()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "myMixesBackground"), for: .default)
+    }
+    func setUpUI() {
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "myMixesBackground")!)
+         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "myMixesBackground"), for: .default)
+         
     }
     
     func setUpLogic() {
@@ -90,8 +100,9 @@ class MyMixesVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "mixTableCell") as? MyMixTableViewCell {
             let space = spaceIDs[indexPath.row]
-            cell.mixID.text = space
             cell.mixName.text = space
+            cell.layer.cornerRadius = 10
+            cell.layer.masksToBounds = true
             return cell
         }
         

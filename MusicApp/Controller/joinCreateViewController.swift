@@ -24,6 +24,10 @@ class joinCreateViewController: UIViewController {
         createButton.roundedButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "joinCreateBackground"), for: .default)
+    }
+    
     @IBAction func touchOutside(_ sender: UITextField) {
         sender.resignFirstResponder()
     }
