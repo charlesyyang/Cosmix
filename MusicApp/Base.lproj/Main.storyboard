@@ -776,8 +776,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lTl-RL-uUZ">
-                                <rect key="frame" x="0.0" y="118.5" width="375" height="410"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lTl-RL-uUZ">
+                                <rect key="frame" x="0.0" y="128" width="375" height="391"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mixTableCell" rowHeight="80" id="UPH-Y8-Lt2" customClass="MixTableViewCell" customModule="Cosmix" customModuleProvider="target">
@@ -797,7 +797,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.092502661049365997" green="0.39098003506660461" blue="0.66324669122695923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.094540871679782867" green="0.24601238965988159" blue="0.59294217824935913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="Dpu-x2-ivZ" firstAttribute="leading" secondItem="b2W-SC-wpU" secondAttribute="leading" constant="10" id="0z4-jn-3Vh"/>
                                                         <constraint firstItem="Dpu-x2-ivZ" firstAttribute="top" secondItem="b2W-SC-wpU" secondAttribute="top" constant="8" id="wax-oK-18r"/>
@@ -818,13 +818,13 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="b2W-SC-wpU" firstAttribute="centerX" secondItem="a5h-El-TTT" secondAttribute="centerX" id="04o-rK-pv9"/>
-                                                <constraint firstAttribute="bottom" secondItem="b2W-SC-wpU" secondAttribute="bottom" constant="10" id="8JF-Bk-ilS"/>
-                                                <constraint firstItem="b2W-SC-wpU" firstAttribute="top" secondItem="a5h-El-TTT" secondAttribute="top" constant="10" id="JuK-Eg-NiM"/>
+                                                <constraint firstAttribute="bottom" secondItem="b2W-SC-wpU" secondAttribute="bottom" constant="5" id="8JF-Bk-ilS"/>
+                                                <constraint firstItem="b2W-SC-wpU" firstAttribute="top" secondItem="a5h-El-TTT" secondAttribute="top" constant="5" id="JuK-Eg-NiM"/>
                                                 <constraint firstItem="b2W-SC-wpU" firstAttribute="centerY" secondItem="a5h-El-TTT" secondAttribute="centerY" id="dbF-QH-UUl"/>
                                                 <constraint firstItem="ap5-xR-NQi" firstAttribute="leading" secondItem="a5h-El-TTT" secondAttribute="leading" constant="18" id="dci-qb-r3h"/>
                                                 <constraint firstItem="ap5-xR-NQi" firstAttribute="top" secondItem="Dpu-x2-ivZ" secondAttribute="bottom" constant="-1" id="gTC-9z-jxC"/>
-                                                <constraint firstItem="b2W-SC-wpU" firstAttribute="leading" secondItem="a5h-El-TTT" secondAttribute="leading" constant="10" id="ooj-Lv-FXv"/>
-                                                <constraint firstAttribute="trailing" secondItem="b2W-SC-wpU" secondAttribute="trailing" constant="10" id="zRz-Lt-e1u"/>
+                                                <constraint firstItem="b2W-SC-wpU" firstAttribute="leading" secondItem="a5h-El-TTT" secondAttribute="leading" constant="5" id="ooj-Lv-FXv"/>
+                                                <constraint firstAttribute="trailing" secondItem="b2W-SC-wpU" secondAttribute="trailing" constant="5" id="zRz-Lt-e1u"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -842,7 +842,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LW1-8A-AUg">
-                                <rect key="frame" x="20" y="548.5" width="70" height="70"/>
+                                <rect key="frame" x="20" y="539" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="CjX-22-k8h"/>
                                     <constraint firstAttribute="height" constant="70" id="hN8-vP-dcB"/>
@@ -852,6 +852,10 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzg-kU-fAC">
                                 <rect key="frame" x="345" y="154" width="56" height="38"/>
                                 <color key="backgroundColor" red="0.023121131584048271" green="0.97835713624954224" blue="0.1713373064994812" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="IN8-R8-N7V"/>
+                                    <constraint firstAttribute="width" constant="56" id="Otf-El-Vzb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Play">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -861,8 +865,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YO8-rR-omZ">
-                                <rect key="frame" x="255" y="-1" width="110" height="32"/>
+                                <rect key="frame" x="245" y="-1" width="120" height="32"/>
                                 <color key="backgroundColor" red="0.1721383631" green="0.70376652480000002" blue="0.081948287790000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="6kM-pb-hSO"/>
+                                    <constraint firstAttribute="width" constant="120" id="yur-1j-nSa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Add to Spotify"/>
                                 <connections>
@@ -899,13 +907,13 @@
                                     <action selector="addMusicPressed:" destination="fiD-bn-2Du" eventType="touchUpInside" id="0RS-KF-BfT"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Road Trip To Tahoe" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkg-Cs-Bvr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Road Trip To Tahoe" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="xkg-Cs-Bvr">
                                 <rect key="frame" x="20" y="87" width="263" height="59"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" red="0.3630540967" green="0.77973872420000001" blue="0.98042041059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Song Playing" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzG-Sz-jQg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Song Playing" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="BzG-Sz-jQg">
                                 <rect key="frame" x="110" y="709" width="284" height="59"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -943,6 +951,8 @@
                         <outlet property="CurrentSongLabel" destination="BzG-Sz-jQg" id="VWP-6f-Zjt"/>
                         <outlet property="MixesTableView" destination="lTl-RL-uUZ" id="0jB-lX-OE9"/>
                         <outlet property="SpaceIDLabel" destination="xkg-Cs-Bvr" id="cY9-92-z98"/>
+                        <outlet property="addMusicButton" destination="8Oo-2f-mgm" id="OxV-zg-Mmf"/>
+                        <outlet property="addToSpotifyButton" destination="YO8-rR-omZ" id="a35-6i-H3D"/>
                         <outlet property="connectToSpotifyButton" destination="ZgW-0M-6eB" id="Mns-Yz-a4j"/>
                         <outlet property="pausePlayButton" destination="rzg-kU-fAC" id="NIz-5m-Gl7"/>
                         <outlet property="selectedSongImage" destination="LW1-8A-AUg" id="0Q7-lc-VDQ"/>
@@ -1043,7 +1053,7 @@
                         <outlet property="PlaylistsTableView" destination="MNv-ZV-Duu" id="2Ee-1h-OMO"/>
                         <outlet property="addPlaylistsButton" destination="9JF-Kg-PYx" id="bwf-T3-6BE"/>
                         <outlet property="selectAllButton" destination="aTX-Dg-LDE" id="qD0-CK-2aG"/>
-                        <segue destination="fiD-bn-2Du" kind="presentation" identifier="addPlaylistsToMix" id="vIr-mT-abE"/>
+                        <segue destination="fiD-bn-2Du" kind="show" identifier="addPlaylistsToMix" id="vIr-mT-abE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5a-Uu-GdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

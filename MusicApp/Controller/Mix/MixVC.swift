@@ -25,9 +25,11 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
     
     @IBOutlet weak var SpaceIDLabel: UILabel!
     
+    @IBOutlet weak var addMusicButton: UIButton!
     @IBOutlet weak var AddMixButton: UIBarButtonItem!
     @IBOutlet weak var connectToSpotifyButton: UIButton!
-
+    @IBOutlet weak var addToSpotifyButton: UIButton!
+    
     @IBOutlet weak var CurrentSongLabel: UILabel!
     
     @IBOutlet weak var CurrentSongArtist: UILabel!
@@ -143,7 +145,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
            MixesTableView.dataSource = self
            setUpLogic()
            getFilteredSongs()
-
+            setUpUI()
             connectToSpotifyButton.isHidden = true
             connectToSpotifyButton.roundedButton()
             //only apply the blur if the user hasn't disabled transparency effects
@@ -162,6 +164,13 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
         
             // Do any additional setup after loading the view.
         }
+    
+    func setUpUI() {
+        pausePlayButton.roundedButton()
+        connectToSpotifyButton.roundedButton()
+        addMusicButton.roundedButton()
+        addToSpotifyButton.roundedButton()
+    }
         
         override func viewDidAppear(_ animated: Bool) {
             MixesTableView.reloadData()
