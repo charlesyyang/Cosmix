@@ -289,13 +289,13 @@
                                     <action selector="joinPressed:" destination="v72-Si-IUj" eventType="touchUpInside" id="L8E-TQ-kzd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Create Mix" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1K-g6-MST">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Create Mix" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1K-g6-MST">
                                 <rect key="frame" x="28" y="582" width="278" height="41"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose a Mix ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e6L-Kt-s2f">
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose a Mix ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e6L-Kt-s2f">
                                 <rect key="frame" x="28" y="665" width="292" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="iJ7-zF-WUg"/>
@@ -306,9 +306,13 @@
                                     <action selector="done:" destination="v72-Si-IUj" eventType="primaryActionTriggered" id="6PE-dT-j0G"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tv-zj-tqF">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tv-zj-tqF">
                                 <rect key="frame" x="345" y="657" width="65" height="47"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="hKo-6F-scj"/>
+                                    <constraint firstAttribute="width" constant="65" id="tFR-Eo-Tqa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Create">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -320,20 +324,23 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="B15-KV-i0s" firstAttribute="leading" secondItem="2ag-5H-tIi" secondAttribute="leading" constant="28" id="102-fv-yQg"/>
                             <constraint firstItem="e6L-Kt-s2f" firstAttribute="leading" secondItem="2ag-5H-tIi" secondAttribute="leading" constant="28" id="4lT-73-Fym"/>
                             <constraint firstItem="uej-Pa-3AJ" firstAttribute="top" secondItem="B15-KV-i0s" secondAttribute="bottom" constant="45" id="7cK-fi-wzb"/>
-                            <constraint firstItem="e6L-Kt-s2f" firstAttribute="top" secondItem="k1K-g6-MST" secondAttribute="bottom" constant="45" id="8Gh-nP-Q4l"/>
-                            <constraint firstItem="B15-KV-i0s" firstAttribute="centerX" secondItem="2ag-5H-tIi" secondAttribute="centerX" id="8Ho-IH-nnv"/>
                             <constraint firstItem="N9W-KX-kTm" firstAttribute="leading" secondItem="uej-Pa-3AJ" secondAttribute="trailing" constant="20" id="HZK-2o-e5d"/>
+                            <constraint firstItem="2ag-5H-tIi" firstAttribute="bottom" secondItem="k1K-g6-MST" secondAttribute="bottom" constant="340" id="Kq5-VK-qh5"/>
                             <constraint firstItem="N9W-KX-kTm" firstAttribute="top" secondItem="B15-KV-i0s" secondAttribute="bottom" constant="38" id="Pc2-Hy-CQv"/>
-                            <constraint firstItem="B15-KV-i0s" firstAttribute="top" secondItem="2ag-5H-tIi" secondAttribute="top" constant="91" id="WMF-Ub-iM7"/>
+                            <constraint firstItem="B15-KV-i0s" firstAttribute="top" secondItem="2ag-5H-tIi" secondAttribute="top" constant="30" id="WMF-Ub-iM7"/>
                             <constraint firstItem="uej-Pa-3AJ" firstAttribute="leading" secondItem="2ag-5H-tIi" secondAttribute="leading" constant="28" id="YpT-yC-Nj8"/>
-                            <constraint firstItem="4Tv-zj-tqF" firstAttribute="leading" secondItem="e6L-Kt-s2f" secondAttribute="trailing" constant="25" id="dEB-SC-Lvg"/>
-                            <constraint firstItem="k1K-g6-MST" firstAttribute="centerX" secondItem="2ag-5H-tIi" secondAttribute="centerX" id="gFx-yl-dQc"/>
+                            <constraint firstItem="4Tv-zj-tqF" firstAttribute="leading" secondItem="e6L-Kt-s2f" secondAttribute="trailing" constant="20" id="dEB-SC-Lvg"/>
+                            <constraint firstItem="k1K-g6-MST" firstAttribute="leading" secondItem="2ag-5H-tIi" secondAttribute="leading" constant="28" id="u9y-FZ-ZlE"/>
+                            <constraint firstItem="e6L-Kt-s2f" firstAttribute="top" secondItem="k1K-g6-MST" secondAttribute="bottom" constant="45" id="w6q-VY-mKt"/>
+                            <constraint firstItem="4Tv-zj-tqF" firstAttribute="top" secondItem="k1K-g6-MST" secondAttribute="bottom" constant="38" id="zYj-ov-JIX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2ag-5H-tIi"/>
                     </view>
                     <connections>
+                        <outlet property="createButton" destination="4Tv-zj-tqF" id="Uar-OH-t0f"/>
                         <outlet property="createTextField" destination="e6L-Kt-s2f" id="Ti9-X6-vkv"/>
                         <outlet property="joinButton" destination="N9W-KX-kTm" id="4Q6-d5-bhk"/>
                         <outlet property="joinTextField" destination="uej-Pa-3AJ" id="zVx-PX-xan"/>

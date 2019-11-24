@@ -15,11 +15,13 @@ class joinCreateViewController: UIViewController {
     @IBOutlet weak var joinTextField: UITextField!
     @IBOutlet weak var joinButton: UIButton!
     var mixID: String!
+    @IBOutlet weak var createButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         // Do any additional setup after loading the view.
         joinButton.roundedButton()
+        createButton.roundedButton()
     }
     
     @IBAction func touchOutside(_ sender: UITextField) {
