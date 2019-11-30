@@ -39,7 +39,7 @@ class MixVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SPTSe
     @IBOutlet weak var pausePlayButton: UIButton!
     
     
-    fileprivate let SpotifyClientID = "2fd46a7902e043e4bcb8ccda3d1381b2"
+        fileprivate let SpotifyClientID = "2fd46a7902e043e4bcb8ccda3d1381b2"
         fileprivate let SpotifyRedirectURI = URL(string: "cosmix-app-login://callback")!
         
         lazy var configuration: SPTConfiguration = {
